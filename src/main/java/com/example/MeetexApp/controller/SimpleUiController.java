@@ -1,4 +1,4 @@
-package com.example.MeetexApp;
+package com.example.MeetexApp.controller;
 
 import javafx.application.HostServices;
 import javafx.fxml.FXML;
