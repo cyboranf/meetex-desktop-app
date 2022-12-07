@@ -21,7 +21,7 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
     private final ApplicationContext applicationContext;
 
     public StageListener(@Value("${spring.application.ui.title}") String applicationTitle,
-                         @Value("classpath:/views/ui.fxml") Resource fxml, ApplicationContext applicationContext) {
+                         @Value("classpath:/views/login.fxml") Resource fxml, ApplicationContext applicationContext) {
         this.applicationTitle = applicationTitle;
         this.fxml = fxml;
         this.applicationContext = applicationContext;
@@ -35,7 +35,7 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
             FXMLLoader fxmlLoader = new FXMLLoader(url);
             fxmlLoader.setControllerFactory(applicationContext::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 600, 600);
+            Scene scene = new Scene(root, 635, 455);
             stage.setScene(scene);
             stage.setTitle(this.applicationTitle);
             stage.show();
