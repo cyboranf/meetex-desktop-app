@@ -10,10 +10,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="616.0" prefWidth="635.0" styleClass="loginBC" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.MeetexApp.controller.LoginUiController">
+<AnchorPane prefHeight="616.0" prefWidth="635.0" styleClass="loginBC" stylesheets="@views/css/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.RegistrationUiController">
    <children>
-      <AnchorPane layoutX="155.0" layoutY="11.0" prefHeight="595.0" prefWidth="325.0" styleClass="loginBChild">
+      <AnchorPane layoutX="155.0" layoutY="11.0" prefHeight="557.0" prefWidth="325.0" styleClass="loginBChild">
          <children>
             <AnchorPane layoutX="43.0" layoutY="112.0" prefHeight="433.0" prefWidth="240.0" styleClass="loginBChildChild">
                <children>
@@ -30,12 +29,12 @@ fx:controller="com.example.MeetexApp.controller.LoginUiController">
                   <Text layoutX="8.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="98.7294921875" />
                   <Text layoutX="8.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="89.7294921875" />
                   <Text layoutX="7.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify Password" wrappingWidth="115.7294921875" />
-                  <Hyperlink layoutX="179.0" layoutY="369.0" text="Sign in" visited="true" />
+                  <Hyperlink layoutX="179.0" layoutY="369.0" onAction="#switchToLogin" text="Sign in" visited="true" />
                </children>
             </AnchorPane>
             <ImageView fitHeight="99.0" fitWidth="206.0" layoutX="68.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/logo2p.png" />
+                  <Image url="@views/images/logo2p.png" />
                </image>
             </ImageView>
          </children>
