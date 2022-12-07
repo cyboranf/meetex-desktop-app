@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="616.0" prefWidth="635.0" styleClass="loginBC" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.example.MeetexApp.controller.LoginUiController">
+   <children>
+      <AnchorPane layoutX="155.0" layoutY="11.0" prefHeight="595.0" prefWidth="325.0" styleClass="loginBChild">
+         <children>
+            <AnchorPane layoutX="43.0" layoutY="112.0" prefHeight="433.0" prefWidth="240.0" styleClass="loginBChildChild">
+               <children>
+                  <Text layoutX="11.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" wrappingWidth="106.7294921875" />
+                  <Text layoutX="8.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address" wrappingWidth="98.7294921875" />
+                  <TextField layoutX="7.0" layoutY="154.0" prefHeight="32.0" prefWidth="226.0" />
+                  <TextField layoutX="7.0" layoutY="99.0" prefHeight="32.0" prefWidth="226.0" />
+                  <TextField layoutX="7.0" layoutY="44.0" prefHeight="32.0" prefWidth="226.0" />
+                  <PasswordField layoutX="7.0" layoutY="207.0" prefHeight="32.0" prefWidth="226.0" />
+                  <PasswordField layoutX="7.0" layoutY="263.0" prefHeight="32.0" prefWidth="226.0" />
+                  <Button layoutX="7.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" styleClass="loginBC" text="Sign up" />
+                  <Line endX="110.0" layoutX="121.0" layoutY="360.0" startX="-113.0" />
+                  <Text layoutX="8.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="75.7294921875" />
+                  <Text layoutX="8.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="98.7294921875" />
+                  <Text layoutX="8.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="89.7294921875" />
+                  <Text layoutX="7.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify Password" wrappingWidth="115.7294921875" />
+                  <Hyperlink layoutX="179.0" layoutY="369.0" text="Sign in" visited="true" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="99.0" fitWidth="206.0" layoutX="68.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo2p.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
