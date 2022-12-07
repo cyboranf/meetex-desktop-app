@@ -46,9 +46,9 @@ public class LoginUiController {
     @FXML
     public void switchToRegister(@NotNull ActionEvent event) throws IOException {
 
-            Parent root = FXMLLoader.load(getClass().getResource("registration.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setMinHeight(595);
+            stage.setMinHeight(600);
             stage.setMinWidth(325);
             scene=new Scene(root);
             stage.setScene(scene);
