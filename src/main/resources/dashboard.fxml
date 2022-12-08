@@ -19,16 +19,6 @@
             <String fx:value="loginBC" />
          </styleClass>
          <children>
-            <ImageView fitHeight="79.0" fitWidth="207.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@views/images/logo2p.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="99.0" fitWidth="121.0" layoutX="66.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@views/images/user.png" />
-               </image>
-            </ImageView>
             <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
             <TextArea layoutX="13.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" promptText="name &amp; surname" styleClass="loginBChild" />
             <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
@@ -41,13 +31,26 @@
                   <Font size="9.0" />
                </font>
             </Text>
+            <ImageView fitHeight="106.0" fitWidth="200.0" layoutX="60.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@views/images/userIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="92.0" fitWidth="183.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@views/images/meetex%20logo%20szary.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="227.0" prefHeight="572.0" prefWidth="565.0" styleClass="loginBChild" stylesheets="@views/css/style.css">
          <children>
             <Line endX="100.0" layoutX="-100.0" startX="100.0" startY="572.0" />
-            <AnchorPane layoutY="535.0" prefHeight="38.0" prefWidth="567.0" styleClass="loginBChildChild" />
-            <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBChildChild">
+            <AnchorPane layoutY="535.0" prefHeight="38.0" prefWidth="567.0" styleClass="loginBC">
+               <children>
+                  <Button layoutX="442.0" layoutY="8.0" mnemonicParsing="false" prefHeight="1.0" prefWidth="122.0" text="add post" />
+               </children></AnchorPane>
+            <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBC">
                <children>
                   <Text layoutX="29.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="loginBC" text="Home page" wrappingWidth="176.8730010986328">
                      <font>
@@ -65,7 +68,7 @@
                      </image>
                   </ImageView>
                   <TextField layoutX="467.0" layoutY="44.0" prefHeight="18.0" prefWidth="32.0" styleClass="loginBChild" />
-                  <TextField layoutX="516.0" layoutY="44.0" prefHeight="24.0" prefWidth="38.0" styleClass="loginBChild" />
+                  <TextField layoutX="519.0" layoutY="44.0" prefHeight="24.0" prefWidth="32.0" styleClass="loginBChild" />
                   <Line endX="100.0" endY="15.5" layoutX="407.0" layoutY="50.0" startX="100.0" startY="-36.5" />
                   <Line endX="100.0" endY="15.5" layoutX="358.0" layoutY="50.0" startX="100.0" startY="-36.5" />
                   <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="419.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
@@ -74,13 +77,13 @@
                      </image>
                   </ImageView>
                   <TextField layoutX="419.0" layoutY="44.0" prefHeight="18.0" prefWidth="32.0" styleClass="loginBChild" />
-                  <ImageView fitHeight="46.0" fitWidth="81.0" layoutX="29.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@views/images/homeIcon.png" />
-                     </image>
-                  </ImageView>
                   <Line endX="100.0" endY="15.5" layoutX="310.0" layoutY="50.0" startX="100.0" startY="-36.5" />
                   <Line endX="100.0" endY="15.5" layoutX="465.0" layoutY="50.0" startX="100.0" startY="-36.5" />
+                  <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@views/images/homePage.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />

@@ -1,8 +1,8 @@
 .loginBC{
-    -fx-background-color: deepskyblue;
+    -fx-background-color: #808000;
 }
 .loginBChild{
-    -fx-background-color: gainsboro;
+    -fx-background-color: 	#C0C0C0;
 }
 .loginBChildChild{
     -fx-background-color: dodgerblue;
