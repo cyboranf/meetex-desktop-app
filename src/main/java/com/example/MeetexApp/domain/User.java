@@ -35,4 +35,7 @@ public class User {
     @Column
     private String matchingPassword;
 
+    @Column
+    private String role;
+
 }
