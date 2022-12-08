@@ -30,7 +30,7 @@
                </image>
             </ImageView>
             <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
-            <TextArea layoutX="13.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" promptText="name and surname" styleClass="loginBChild" />
+            <TextArea layoutX="13.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" promptText="name &amp; surname" styleClass="loginBChild" />
             <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
             <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
             <Button layoutX="-1.0" layoutY="354.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Your Profile" />

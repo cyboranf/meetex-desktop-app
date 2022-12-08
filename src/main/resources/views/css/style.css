@@ -7,3 +7,13 @@
 .loginBChildChild{
     -fx-background-color: dodgerblue;
 }
+.input{
+    -fx-border-radius: 10px;
+}
+.button{
+    -fx-background-radius: 20px;
+}
+
+.dashSmallerPane{
+    -fx-right-border-radius: 20px;
+}
