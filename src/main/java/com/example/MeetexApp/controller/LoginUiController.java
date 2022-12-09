@@ -15,10 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 
 @Controller
+@RequestMapping("/login")
 public class LoginUiController {
 
     @FXML
@@ -46,13 +49,11 @@ public class LoginUiController {
     @FXML
     public void switchToRegister(@NotNull ActionEvent event) throws IOException {
 
-            Parent root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setMinHeight(600);
-            stage.setMinWidth(325);
-            scene=new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 630, 580);
+        stage.setScene(scene);
+        stage.show();
 
     }
 }

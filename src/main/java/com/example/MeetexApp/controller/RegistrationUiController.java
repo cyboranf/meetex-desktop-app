@@ -24,9 +24,9 @@ public class RegistrationUiController {
     @FXML
     public void switchToLogin(@NotNull ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
+        scene = new Scene(root, 630, 580);
         stage.setScene(scene);
         stage.show();
 
