@@ -3,12 +3,14 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="616.0" prefWidth="627.0" styleClass="loginBC" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.RegistrationUiController">
@@ -19,18 +21,28 @@
                <children>
                   <Text layoutX="21.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" wrappingWidth="106.7294921875" />
                   <Text layoutX="15.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address" wrappingWidth="98.7294921875" />
-                  <TextField layoutX="17.0" layoutY="154.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <TextField layoutX="17.0" layoutY="99.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <TextField layoutX="18.0" layoutY="44.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <PasswordField layoutX="17.0" layoutY="207.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <PasswordField layoutX="17.0" layoutY="263.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <Button layoutX="17.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" text="Sign up" />
+                  <TextField fx:id="email" layoutX="17.0" layoutY="154.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
+                  <TextField fx:id="lastName" layoutX="17.0" layoutY="99.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
+                  <TextField fx:id="firstName" layoutX="18.0" layoutY="44.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
+                  <PasswordField fx:id="password" layoutX="17.0" layoutY="207.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
+                  <PasswordField fx:id="matchingPassword" layoutX="17.0" layoutY="263.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
+                  <Button fx:id="signUp" layoutX="17.0" layoutY="310.0" mnemonicParsing="false" onAction="#createUser" prefHeight="40.0" prefWidth="226.0" text="Sign up" />
                   <Line endX="110.0" layoutX="131.0" layoutY="361.0" startX="-113.0" />
                   <Text layoutX="15.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="75.7294921875" />
                   <Text layoutX="15.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="98.7294921875" />
                   <Text layoutX="19.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" wrappingWidth="89.7294921875" />
                   <Text layoutX="17.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verify Password" wrappingWidth="115.7294921875" />
                   <Hyperlink layoutX="191.0" layoutY="370.0" onAction="#switchToLogin" text="Sign in" visited="true" />
+                  <Label fx:id="emptyName" disable="true" layoutX="110.0" layoutY="28.0" prefHeight="16.0" prefWidth="132.0" textFill="#ee0c0c" />
+                  <Label fx:id="emptySurname" disable="true" layoutX="110.0" layoutY="83.0" prefHeight="16.0" prefWidth="132.0" textFill="#ee0c0c" />
+                  <Label fx:id="emptyEmail" disable="true" layoutX="110.0" layoutY="136.0" prefHeight="16.0" prefWidth="132.0" textFill="#ee0c0c" />
+                  <Label fx:id="emptyPassword" disable="true" layoutX="110.0" layoutY="192.0" prefHeight="16.0" prefWidth="132.0" textFill="#ee0c0c" />
+                  <Label fx:id="emptyMatchingPassword" disable="true" layoutX="127.0" layoutY="247.0" prefHeight="16.0" prefWidth="116.0" textFill="#ee0c0c" />
+                  <Label fx:id="success" layoutX="101.0" layoutY="399.0" prefHeight="22.0" prefWidth="99.0" textFill="#25c319">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
                <styleClass>
                   <String fx:value="loginBC" />
