@@ -12,6 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
 public class JavafxApplication extends Application {
+
     private ConfigurableApplicationContext context;
 
     @Override
@@ -51,6 +52,5 @@ public class JavafxApplication extends Application {
             super(source);
         }
     }
+
 }
-
-
