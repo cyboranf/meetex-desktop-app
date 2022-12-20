@@ -1,5 +1,6 @@
 package com.example.MeetexApp.config;
 
+import com.example.MeetexApp.service.UserService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +21,9 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
     private final Resource fxml;
     private final ApplicationContext applicationContext;
 
+
     public StageListener(@Value("${spring.application.ui.title}") String applicationTitle,
-                         @Value("classpath:/login.fxml") Resource fxml, ApplicationContext applicationContext) {
+                         @Value("classpath:/login.fxml") Resource fxml, ApplicationContext applicationContext, UserService userService) {
         this.applicationTitle = applicationTitle;
         this.fxml = fxml;
         this.applicationContext = applicationContext;
