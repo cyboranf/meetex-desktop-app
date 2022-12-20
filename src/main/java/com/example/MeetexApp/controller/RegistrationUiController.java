@@ -1,12 +1,13 @@
 package com.example.MeetexApp.controller;
 
+//import com.example.MeetexApp.config.StageManager;
+
 import com.example.MeetexApp.domain.User;
-import com.example.MeetexApp.repository.UserRepository;
 import com.example.MeetexApp.service.UserService;
-import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,16 +18,20 @@ import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 @Controller
-public class RegistrationUiController {
+public class RegistrationUiController implements Initializable {
 
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+
+
+//    private final UserService userService;
 
     private Stage stage;
 
@@ -34,10 +39,9 @@ public class RegistrationUiController {
 
     private Parent root;
 
-
-    public void init() {
-
-    }
+//    public RegistrationUiController(UserService userService) {
+//        this.userService = userService;
+//    }
 
 
     //byc moze trzeba bedzie zrobic jeszcze jeden widok afterRegister
@@ -66,7 +70,7 @@ public class RegistrationUiController {
         user.setMatchingPassword(matchingPassword.getText());
         user.setRole("USER");
 
-        userRepository.save(user);
+
         success.setText("success");
 
     }
@@ -105,8 +109,11 @@ public class RegistrationUiController {
 
     @FXML
     private Label success;
-    @FXML
-    private Button signUp;
 
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -1,28 +1,63 @@
 package com.example.MeetexApp.controller;
 
-import javafx.application.HostServices;
+import com.example.MeetexApp.config.StageListener;
+import com.example.MeetexApp.controllerMethods.LoginMethods;
+import com.example.MeetexApp.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 @Controller
-@RequestMapping("/login")
-public class LoginUiController {
+public class LoginUiController implements Initializable {
+
+
+    @FXML
+    public void switchToRegister(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 630, 580);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    public void LogIn(ActionEvent event) throws IOException {
+        LoginMethods loginMethods = new LoginMethods();
+        boolean resultLogin = false;
+
+        try {
+            resultLogin = loginMethods.LogIn(emailField, passwordField);
+            if (resultLogin) {
+                Parent root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root, 630, 580);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                noSuccess.setText("Wrong email or password");
+            }
+        } catch (NullPointerException e) {
+            noSuccess.setText("Wrong email or password");
+        }
+
+
+    }
 
     @FXML
     private AnchorPane pane;
@@ -39,6 +74,9 @@ public class LoginUiController {
     @FXML
     private Hyperlink createAccount;
 
+    @FXML
+    private Label noSuccess;
+
     private Stage stage;
 
     private Scene scene;
@@ -46,14 +84,8 @@ public class LoginUiController {
     private Parent root;
 
 
-    @FXML
-    public void switchToRegister(@NotNull ActionEvent event) throws IOException {
-
-        root = FXMLLoader.load(getClass().getResource("/registration.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 630, 580);
-        stage.setScene(scene);
-        stage.show();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }
