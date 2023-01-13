@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="616.0" prefWidth="627.0" styleClass="loginBC" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.RegistrationUiController">
+<AnchorPane prefHeight="583.0" prefWidth="627.0" styleClass="loginBC" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.RegistrationUiController">
    <children>
-      <AnchorPane layoutX="155.0" layoutY="11.0" prefHeight="557.0" prefWidth="319.0">
+      <AnchorPane layoutX="155.0" layoutY="11.0" prefHeight="557.0" prefWidth="311.0">
          <children>
-            <AnchorPane layoutX="32.0" layoutY="110.0" prefHeight="433.0" prefWidth="206.0">
+            <AnchorPane layoutX="25.0" layoutY="110.0" prefHeight="433.0" prefWidth="206.0">
                <children>
                   <Text layoutX="21.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" wrappingWidth="106.7294921875" />
                   <Text layoutX="15.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address" wrappingWidth="98.7294921875" />
@@ -26,7 +26,7 @@
                   <TextField fx:id="firstName" layoutX="18.0" layoutY="44.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
                   <PasswordField fx:id="password" layoutX="17.0" layoutY="207.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
                   <PasswordField fx:id="matchingPassword" layoutX="17.0" layoutY="263.0" prefHeight="32.0" prefWidth="226.0" styleClass="input" />
-                  <Button fx:id="signUp" layoutX="17.0" layoutY="310.0" mnemonicParsing="false" onAction="#createUser" prefHeight="40.0" prefWidth="226.0" text="Sign up" />
+                  <Button fx:id="signUp" layoutX="17.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="226.0" text="Sign up" />
                   <Line endX="110.0" layoutX="131.0" layoutY="361.0" startX="-113.0" />
                   <Text layoutX="15.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" wrappingWidth="75.7294921875" />
                   <Text layoutX="15.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="98.7294921875" />
@@ -49,9 +49,9 @@
                   <String fx:value="button" />
                </styleClass>
             </AnchorPane>
-            <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="60.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="49.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@views/images/meetex%20logo%20szary.png" />
+                  <Image url="@views/images/meetexlogoszary.png" />
                </image>
             </ImageView>
          </children>
