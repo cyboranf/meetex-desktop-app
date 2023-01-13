@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="627.0" styleClass="loginBC" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.LoginUiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="664.0" styleClass="loginBC" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.LoginUiController">
    <children>
-      <AnchorPane layoutX="158.0" layoutY="12.0" prefHeight="557.0" prefWidth="311.0">
+      <AnchorPane layoutX="154.0" layoutY="7.0" prefHeight="567.0" prefWidth="326.0">
          <children>
-            <AnchorPane layoutX="28.0" layoutY="134.0" prefHeight="243.0" prefWidth="206.0">
+            <AnchorPane layoutX="37.0" layoutY="134.0" prefHeight="261.0" prefWidth="260.0">
                <children>
                   <Text layoutX="13.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New to Meetex?" wrappingWidth="104.5712890625" />
                   <Line endX="107.0" layoutX="128.0" layoutY="189.0" startX="-115.0" />
@@ -25,13 +25,15 @@
                   <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="16.0" layoutY="101.0" prefHeight="31.0" prefWidth="226.0" />
                   <Text layoutX="16.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email address" wrappingWidth="117.7294921875" />
                   <Text layoutX="16.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="85.7294921875" />
-                  <Button layoutX="12.0" layoutY="146.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="226.0" text="Sign in" />
+                  <Button layoutX="12.0" layoutY="146.0" mnemonicParsing="false" onAction="#LogIn" prefHeight="31.0" prefWidth="226.0" text="Sign in" />
                   <Hyperlink layoutX="127.0" layoutY="82.0" text="Forgot password?" visited="true">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Hyperlink>
                   <Hyperlink layoutX="178.0" layoutY="198.0" onAction="#switchToRegister" text="Sign up" visited="true" />
+                  <Label fx:id="success" layoutX="18.0" layoutY="217.0" prefHeight="21.0" prefWidth="223.0" textFill="#f50a0a" />
+                  <Label fx:id="closeLabel" layoutX="16.0" layoutY="241.0" prefHeight="21.0" prefWidth="223.0" textFill="#f50a0a" />
                </children>
                <styleClass>
                   <String fx:value="loginBC" />
@@ -39,7 +41,7 @@
                </styleClass>
             </AnchorPane>
             <Label fx:id="noSuccess" layoutX="56.0" layoutY="110.0" prefHeight="16.0" prefWidth="223.0" textFill="#f50a0a" />
-            <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="51.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="60.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@views/images/meetexlogoszary.png" />
                </image>
