@@ -1,15 +1,20 @@
 package com.example.MeetexApp.config;
 
+import com.example.MeetexApp.controller.DashboardController;
 import com.example.MeetexApp.service.UserService;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,12 +26,15 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
     private final Resource fxml;
     private final ApplicationContext applicationContext;
 
+    private final UserService userService;
+
 
     public StageListener(@Value("${spring.application.ui.title}") String applicationTitle,
-                         @Value("classpath:/login.fxml") Resource fxml, ApplicationContext applicationContext, UserService userService) {
+                         @Value("classpath:/dashboard.fxml") Resource fxml, ApplicationContext applicationContext, UserService userService) {
         this.applicationTitle = applicationTitle;
         this.fxml = fxml;
         this.applicationContext = applicationContext;
+        this.userService = userService;
     }
 
     @Override
@@ -38,7 +46,8 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
 
             fxmlLoader.setControllerFactory(applicationContext::getBean);
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 630, 580);
+            Scene scene = new Scene(root, 790, 570);
+
             stage.setScene(scene);
             stage.setTitle(this.applicationTitle);
             stage.show();

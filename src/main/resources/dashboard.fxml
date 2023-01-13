@@ -2,7 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="544.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dashboard">
+<AnchorPane fx:id="main" prefHeight="544.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.DashboardController">
    <children>
       <AnchorPane prefHeight="573.0" prefWidth="227.0" stylesheets="@views/css/style.css">
          <styleClass>
@@ -20,7 +20,6 @@
          </styleClass>
          <children>
             <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
-            <TextArea layoutX="13.0" layoutY="216.0" prefHeight="30.0" prefWidth="200.0" promptText="name &amp; surname" styleClass="loginBChild" />
             <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
             <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
             <Button layoutX="-1.0" layoutY="354.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Your Profile" />
@@ -38,9 +37,10 @@
             </ImageView>
             <ImageView fitHeight="92.0" fitWidth="183.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@views/images/meetex%20logo%20szary.png" />
+                  <Image url="@views/images/meetexlogoszary.png" />
                </image>
             </ImageView>
+            <Label layoutX="53.0" layoutY="206.0" prefHeight="38.0" prefWidth="131.0" text="Label" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="227.0" prefHeight="572.0" prefWidth="565.0" styleClass="loginBChild" stylesheets="@views/css/style.css">
@@ -49,6 +49,7 @@
             <AnchorPane layoutY="535.0" prefHeight="38.0" prefWidth="567.0" styleClass="loginBC">
                <children>
                   <Button layoutX="442.0" layoutY="8.0" mnemonicParsing="false" prefHeight="1.0" prefWidth="122.0" text="add post" />
+                  <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#openSignInView" prefHeight="24.0" prefWidth="146.0" text="Sign In" textFill="#d30b0b" />
                </children></AnchorPane>
             <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBC">
                <children>
