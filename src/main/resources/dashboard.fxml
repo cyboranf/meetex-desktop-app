@@ -21,10 +21,10 @@
          <children>
             <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
             <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
-            <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
+            <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" onAction="#dashboardView" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
             <Button layoutX="-1.0" layoutY="354.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Your Profile" />
             <Button layoutX="-1.0" layoutY="414.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Messages" />
-            <Button layoutX="-1.0" layoutY="474.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Logout" textFill="#e80a0a" />
+            <Button layoutX="-1.0" layoutY="474.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="228.0" text="Logout" textFill="#e80a0a" />
             <Text layoutX="7.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="app created by Filip Cyboran" wrappingWidth="137.7294921875">
                <font>
                   <Font size="9.0" />
@@ -40,9 +40,9 @@
                   <Image url="@views/images/meetexlogoszary.png" />
                </image>
             </ImageView>
-            <Label fx:id="loggedUser" layoutX="17.0" layoutY="227.0" prefHeight="32.0" prefWidth="201.0" textAlignment="CENTER">
+            <Label fx:id="firstName" alignment="CENTER" layoutX="17.0" layoutY="227.0" prefHeight="32.0" prefWidth="201.0" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font size="19.0" />
+                  <Font size="33.0" />
                </font>
             </Label>
          </children>
@@ -93,6 +93,11 @@
             </AnchorPane>
             <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />
             <Line endX="452.0" layoutX="113.0" layoutY="535.0" startX="-113.0" />
+            <Label fx:id="logoutLabel" alignment="CENTER" layoutX="162.0" layoutY="267.0" prefHeight="40.0" prefWidth="244.0" textAlignment="CENTER" textFill="#ee0d0d" wrapText="true">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

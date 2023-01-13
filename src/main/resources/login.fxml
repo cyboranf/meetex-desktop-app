@@ -32,8 +32,8 @@
                      </font>
                   </Hyperlink>
                   <Hyperlink layoutX="178.0" layoutY="198.0" onAction="#switchToRegister" text="Sign up" visited="true" />
-                  <Label fx:id="success" layoutX="18.0" layoutY="217.0" prefHeight="21.0" prefWidth="223.0" textFill="#f50a0a" />
-                  <Label fx:id="closeLabel" layoutX="16.0" layoutY="241.0" prefHeight="21.0" prefWidth="223.0" textFill="#f50a0a" />
+                  <Label fx:id="success" layoutX="18.0" layoutY="217.0" prefHeight="21.0" prefWidth="223.0" textFill="#2af50c" />
+                  <Label fx:id="closeLabel" layoutX="16.0" layoutY="241.0" prefHeight="21.0" prefWidth="223.0" textFill="#0cf517" />
                </children>
                <styleClass>
                   <String fx:value="loginBC" />
