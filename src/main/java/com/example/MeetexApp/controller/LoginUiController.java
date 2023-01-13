@@ -52,6 +52,7 @@ public class LoginUiController implements Initializable {
         });
         User user = logUser.get();
         user.setLogged(true);
+        userService.save(user);
 
         success.setText("Success!");
         closeLabel.setText("You can close this window.");
