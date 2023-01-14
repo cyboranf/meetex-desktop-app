@@ -7,12 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -65,13 +62,74 @@ public class DashboardController implements Initializable {
         logoutLabel.setText("Logged out");
     }
 
+    //to change
+    @FXML
+    public void homeIconClick(ActionEvent event) throws IOException {
+        User user = userService.findByLogged();
+        notCount.setText(String.valueOf(notificationService.countOfNot(user)));
+    }
+
+    @FXML
+    public void addPost(ActionEvent event) throws IOException {
+        //switch scene
+    }
+
+    @FXML
+    public void deletePost0(ActionEvent event) throws IOException {
+        postService.delete(postToView.get(0));
+    }
+
+    @FXML
+    public void deletePost1(ActionEvent event) throws IOException {
+        postService.delete(postToView.get(1));
+    }
+
+    @FXML
+    public void deletePost2(ActionEvent event) throws IOException {
+        postService.delete(postToView.get(2));
+    }
+
+    @FXML
+    public void editPost(ActionEvent event) throws IOException {
+        //switch scene
+    }
+
+    @FXML
+    public void addComment(ActionEvent event) throws IOException {
+        //switch scene
+    }
+
+    @FXML
+    public void addLike0(ActionEvent event) throws IOException {
+        Post post = postToView.get(0);
+        post.setReactions(post.getReactions() + 1);
+        postService.save(post);
+    }
+
+    @FXML
+    public void addLike1(ActionEvent event) throws IOException {
+        Post post = postToView.get(1);
+        post.setReactions(post.getReactions() + 1);
+        postService.save(post);
+    }
+
+    @FXML
+    public void addLike2(ActionEvent event) throws IOException {
+        Post post = postToView.get(2);
+        post.setReactions(post.getReactions() + 1);
+        postService.save(post);
+    }
+
+
+    public List<Post> postToView = new ArrayList<>();
+
     @FXML
     public void dashboardView(ActionEvent event) throws IOException {
+        postToView.clear();
         User user = userService.findByLogged();
         firstName.setText(user.getFirstName());
 
         List<Post> posts = postService.findAll();
-        List<Post> postToView = new ArrayList<>();
         for (int i = posts.size() - 1; i >= 0; i--) {
             if (posts.get(i).getSender().getId().equals(user.getId())) {
                 postToView.add(posts.get(i));
@@ -103,8 +161,15 @@ public class DashboardController implements Initializable {
             likeCount2.setText(String.valueOf(reactions2));
         }
 
+
     }
 
+    @FXML
+    private Label friendsCount;
+    @FXML
+    private Label messagesCount;
+    @FXML
+    private Label notCount;
     @FXML
     private Label title;
     @FXML
@@ -135,7 +200,6 @@ public class DashboardController implements Initializable {
     private Label likeCount1;
     @FXML
     private Label likeCount2;
-
     @FXML
     private Label logoutLabel;
     @FXML
