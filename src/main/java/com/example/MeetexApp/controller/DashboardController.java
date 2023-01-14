@@ -71,7 +71,12 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void addPost(ActionEvent event) throws IOException {
-        //switch scene
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/addPost.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
     }
 
     @FXML
@@ -89,9 +94,42 @@ public class DashboardController implements Initializable {
         postService.delete(postToView.get(2));
     }
 
+    public static int index = 0;
+
     @FXML
-    public void editPost(ActionEvent event) throws IOException {
-        //switch scene
+    public void editPost0(ActionEvent event) throws IOException {
+        index=0;
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
+
+    @FXML
+    public void editPost1(ActionEvent event) throws IOException {
+        index=1;
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
+
+    @FXML
+    public void editPost2(ActionEvent event) throws IOException {
+        index=2;
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
     }
 
     @FXML
