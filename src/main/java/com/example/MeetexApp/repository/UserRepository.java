@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
@@ -13,5 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByEmail(@Param("eMail") String eMail);
     @Query(value = "SELECT * FROM user WHERE logged = true ", nativeQuery = true)
     List<User> findByLogged();
+
+    Optional<User> findById(Long id);
 }
 

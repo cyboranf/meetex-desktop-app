@@ -31,4 +31,8 @@ public class UserService {
     public User findByLogged() {
         return userRepository.findByLogged().get(0);
     }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).get();
+    }
 }
