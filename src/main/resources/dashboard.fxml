@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,93 +11,166 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="544.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.DashboardController">
-   <children>
-      <AnchorPane prefHeight="573.0" prefWidth="227.0" stylesheets="@views/css/style.css">
-         <styleClass>
-            <String fx:value="dashSmallerPane" />
-            <String fx:value="loginBC" />
-         </styleClass>
-         <children>
-            <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
-            <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
-            <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" onAction="#dashboardView" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
-            <Button layoutX="-1.0" layoutY="354.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Your Profile" />
-            <Button layoutX="-1.0" layoutY="414.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Messages" />
-            <Button layoutX="-1.0" layoutY="474.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="228.0" text="Logout" textFill="#e80a0a" />
-            <Text layoutX="7.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="app created by Filip Cyboran" wrappingWidth="137.7294921875">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="106.0" fitWidth="200.0" layoutX="60.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@views/images/userIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@views/images/meetexlogoszary.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="firstName" alignment="CENTER" layoutX="17.0" layoutY="227.0" prefHeight="32.0" prefWidth="201.0" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="227.0" prefHeight="572.0" prefWidth="565.0" styleClass="loginBChild" stylesheets="@views/css/style.css">
-         <children>
-            <Line endX="100.0" layoutX="-100.0" startX="100.0" startY="572.0" />
-            <AnchorPane layoutY="535.0" prefHeight="38.0" prefWidth="567.0" styleClass="loginBC">
-               <children>
-                  <Button layoutX="442.0" layoutY="8.0" mnemonicParsing="false" prefHeight="1.0" prefWidth="122.0" text="add post" />
-                  <Button layoutY="7.0" mnemonicParsing="false" onAction="#openSignInView" prefHeight="24.0" prefWidth="147.0" text="Sign In" textFill="#e40c0c" />
-               </children></AnchorPane>
-            <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBC">
-               <children>
-                  <Text layoutX="29.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="loginBC" text="Home page" wrappingWidth="176.8730010986328">
-                     <font>
+    <children>
+        <AnchorPane prefHeight="573.0" prefWidth="227.0" stylesheets="@views/css/style.css">
+            <styleClass>
+                <String fx:value="dashSmallerPane" />
+                <String fx:value="loginBC" />
+            </styleClass>
+            <children>
+                <Line endX="100.0" layoutX="115.0" layoutY="78.0" startX="-100.0" />
+                <Line endX="100.0" layoutX="115.0" layoutY="276.0" startX="-100.0" />
+                <Button layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" onAction="#dashboardView" prefHeight="60.0" prefWidth="228.0" text="Main Page" />
+                <Button layoutX="-1.0" layoutY="354.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Your Profile" />
+                <Button layoutX="-1.0" layoutY="414.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="228.0" text="Messages" />
+                <Button layoutX="-1.0" layoutY="474.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="228.0" text="Logout" textFill="#e80a0a" />
+                <Text layoutX="7.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="app created by Filip Cyboran" wrappingWidth="137.7294921875">
+                    <font>
                         <Font size="9.0" />
-                     </font>
-                  </Text>
-                  <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="467.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@views/images/chatIcon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="49.0" fitWidth="32.0" layoutX="519.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@views/images/notficationIcon.png" />
-                     </image>
-                  </ImageView>
-                  <TextField layoutX="467.0" layoutY="44.0" prefHeight="18.0" prefWidth="32.0" styleClass="loginBChild" />
-                  <TextField layoutX="519.0" layoutY="44.0" prefHeight="24.0" prefWidth="32.0" styleClass="loginBChild" />
-                  <Line endX="100.0" endY="15.5" layoutX="407.0" layoutY="50.0" startX="100.0" startY="-36.5" />
-                  <Line endX="100.0" endY="15.5" layoutX="358.0" layoutY="50.0" startX="100.0" startY="-36.5" />
-                  <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="419.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@views/images/friendsIcon.png" />
-                     </image>
-                  </ImageView>
-                  <TextField layoutX="419.0" layoutY="44.0" prefHeight="18.0" prefWidth="32.0" styleClass="loginBChild" />
-                  <Line endX="100.0" endY="15.5" layoutX="310.0" layoutY="50.0" startX="100.0" startY="-36.5" />
-                  <Line endX="100.0" endY="15.5" layoutX="465.0" layoutY="50.0" startX="100.0" startY="-36.5" />
-                  <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@views/images/homePage.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />
-            <Line endX="452.0" layoutX="113.0" layoutY="535.0" startX="-113.0" />
-            <Label fx:id="logoutLabel" alignment="CENTER" layoutX="162.0" layoutY="267.0" prefHeight="40.0" prefWidth="244.0" textAlignment="CENTER" textFill="#ee0d0d" wrapText="true">
+                    </font>
+                </Text>
+                <ImageView fitHeight="106.0" fitWidth="200.0" layoutX="60.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@views/images/userIcon.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="100.0" fitWidth="214.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@views/images/meetexlogoszary.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="firstName" alignment="CENTER" layoutX="17.0" layoutY="227.0" prefHeight="32.0" prefWidth="201.0" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="33.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="227.0" prefHeight="572.0" prefWidth="565.0" styleClass="loginBChild" stylesheets="@views/css/style.css">
+            <children>
+                <Line endX="100.0" layoutX="-100.0" startX="100.0" startY="572.0" />
+                <AnchorPane layoutY="513.0" prefHeight="60.0" prefWidth="567.0" styleClass="loginBC">
+                    <children>
+                        <Button layoutX="442.0" layoutY="8.0" mnemonicParsing="false" onAction="#addPost" prefHeight="1.0" prefWidth="122.0" text="add post" />
+                        <Button layoutY="7.0" mnemonicParsing="false" onAction="#openSignInView" prefHeight="24.0" prefWidth="147.0" text="Sign In" textFill="#e40c0c" />
+                        <Line endX="452.0" layoutX="114.0" startX="-113.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBC">
+                    <children>
+                        <Text layoutX="29.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="loginBC" text="Home page" wrappingWidth="176.8730010986328">
+                            <font>
+                                <Font size="9.0" />
+                            </font>
+                        </Text>
+                        <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="467.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@views/images/chatIcon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="49.0" fitWidth="32.0" layoutX="519.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@views/images/notficationIcon.png" />
+                            </image>
+                        </ImageView>
+                        <Line endX="100.0" endY="15.5" layoutX="407.0" layoutY="50.0" startX="100.0" startY="-36.5" />
+                        <Line endX="100.0" endY="15.5" layoutX="358.0" layoutY="50.0" startX="100.0" startY="-36.5" />
+                        <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="419.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@views/images/friendsIcon.png" />
+                            </image>
+                        </ImageView>
+                        <Line endX="100.0" endY="15.5" layoutX="310.0" layoutY="50.0" startX="100.0" startY="-36.5" />
+                        <Line endX="100.0" endY="15.5" layoutX="465.0" layoutY="50.0" startX="100.0" startY="-36.5" />
+                        <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="36.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@views/images/homePage.png" />
+                            </image>
+                        </ImageView>
+                        <Text layoutX="92.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Posts:" wrappingWidth="113.7294921875">
+                            <font>
+                                <Font size="23.0" />
+                            </font>
+                        </Text>
+                  <Label fx:id="friendsCount" alignment="CENTER" layoutX="417.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="3" />
+                  <Label fx:id="messagesCount" alignment="CENTER" layoutX="465.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="2" />
+                  <Label fx:id="notCount" alignment="CENTER" layoutX="517.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="0" />
+                  <Button layoutX="43.0" layoutY="17.0" mnemonicParsing="false" onAction="#homeIconClick" styleClass="loginBC" />
+                    </children>
+                </AnchorPane>
+                <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />
+                <Label fx:id="logoutLabel" alignment="CENTER" layoutX="162.0" layoutY="267.0" prefHeight="40.0" prefWidth="244.0" textAlignment="CENTER" textFill="#ee0d0d" wrapText="true">
+                    <font>
+                        <Font size="33.0" />
+                    </font>
+                </Label>
+                <AnchorPane layoutY="80.0" prefHeight="127.0" prefWidth="566.0">
+                    <children>
+                        <Label fx:id="author" layoutX="14.0" layoutY="105.0" prefHeight="16.0" prefWidth="106.0" textFill="#d01212" />
+                        <Label fx:id="date" layoutX="333.0" layoutY="107.0" prefHeight="16.0" prefWidth="106.0" />
+                        <Label fx:id="postText" alignment="TOP_LEFT" layoutX="22.0" layoutY="65.0" prefHeight="32.0" prefWidth="407.0" />
+                        <Button fx:id="zero" layoutX="446.0" layoutY="3.0" mnemonicParsing="false" onAction="#addLike0" prefHeight="1.0" prefWidth="122.0" text="like" textFill="#20b920" />
+                        <Line endX="-318.0" endY="71.5" layoutX="757.0" layoutY="52.0" startX="-318.0" startY="-41.5" />
+                        <Button fx:id="zero" layoutX="446.0" layoutY="28.0" mnemonicParsing="false" onAction="#addComment" prefHeight="1.0" prefWidth="122.0" text="comment" textFill="#17ae2d" />
+                        <Button fx:id="zero" layoutX="446.0" layoutY="73.0" mnemonicParsing="false" onAction="#editPost" prefHeight="1.0" prefWidth="122.0" text="edit" textFill="#2c8d33" />
+                        <Button fx:id="zerod" layoutX="446.0" layoutY="101.0" mnemonicParsing="false" onAction="#deletePost0" prefHeight="1.0" prefWidth="122.0" text="delete" textFill="#c31212" />
+                        <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="404.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@views/images/like.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="likeCount" layoutX="368.0" layoutY="17.0" prefHeight="24.0" prefWidth="36.0" />
+                        <Label fx:id="title" alignment="CENTER" layoutX="22.0" layoutY="12.0" prefHeight="32.0" prefWidth="347.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Label>
+                  <Line endX="259.0" layoutX="178.0" layoutY="52.0" startX="-178.5" />
+                  <Line endX="259.0" layoutX="176.0" layoutY="105.0" startX="-176.5" />
+                    </children>
+                </AnchorPane>
+                <Line endX="236.0" layoutX="324.0" layoutY="215.0" startX="-324.5" />
+                <Line endX="236.0" layoutX="325.0" layoutY="362.0" startX="-325.5" />
+                <Line endX="-318.0" endY="60.5" layoutX="757.0" layoutY="292.0" startX="-318.0" startY="-67.5" />
+                <Line endX="-318.0" endY="47.5" layoutX="757.0" layoutY="456.0" startX="-318.0" startY="-85.5" />
+                <Button fx:id="first" layoutX="446.0" layoutY="224.0" mnemonicParsing="false" onAction="#addLike1" prefHeight="1.0" prefWidth="122.0" text="like" textFill="#20b920" />
+                <Button fx:id="first" layoutX="446.0" layoutY="248.0" mnemonicParsing="false" onAction="#addComment" prefHeight="1.0" prefWidth="122.0" text="comment" textFill="#17ae2d" />
+                <Button fx:id="first" layoutX="446.0" layoutY="307.0" mnemonicParsing="false" onAction="#editPost" prefHeight="1.0" prefWidth="122.0" text="edit" textFill="#2c8d33" />
+                <Button fx:id="firstd" layoutX="446.0" layoutY="331.0" mnemonicParsing="false" onAction="#deletePost1" prefHeight="1.0" prefWidth="122.0" text="delete" textFill="#c31212" />
+                <Button fx:id="second" layoutX="446.0" layoutY="370.0" mnemonicParsing="false" onAction="#addLike2" prefHeight="1.0" prefWidth="122.0" text="like" textFill="#20b920" />
+                <Button fx:id="second" layoutX="446.0" layoutY="394.0" mnemonicParsing="false" onAction="#addComment" prefHeight="1.0" prefWidth="122.0" text="comment" textFill="#17ae2d" />
+                <Button fx:id="second" layoutX="446.0" layoutY="457.0" mnemonicParsing="false" onAction="#editPost" prefHeight="1.0" prefWidth="122.0" text="edit" textFill="#2c8d33" />
+                <Button fx:id="secondd" layoutX="446.0" layoutY="481.0" mnemonicParsing="false" onAction="#deletePost2" prefHeight="1.0" prefWidth="122.0" text="delete" textFill="#c31212" />
+                <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="404.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@views/images/like.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="404.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@views/images/like.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="likeCount1" layoutX="369.0" layoutY="232.0" prefHeight="24.0" prefWidth="36.0" />
+                <Label fx:id="likeCount2" layoutX="369.0" layoutY="395.0" prefHeight="24.0" prefWidth="36.0" />
+                <Label fx:id="date1" layoutX="330.0" layoutY="335.0" prefHeight="16.0" prefWidth="106.0" />
+                <Label fx:id="date2" layoutX="330.0" layoutY="485.0" prefHeight="16.0" prefWidth="106.0" />
+                <Label fx:id="author1" layoutX="14.0" layoutY="335.0" prefHeight="16.0" prefWidth="106.0" textFill="#bc1818" />
+                <Label fx:id="author2" layoutX="14.0" layoutY="485.0" prefHeight="16.0" prefWidth="106.0" textFill="#c91515" />
+                <Label fx:id="postText1" alignment="TOP_LEFT" layoutX="20.0" layoutY="273.0" prefHeight="53.0" prefWidth="407.0" />
+                <Label fx:id="postText2" alignment="TOP_LEFT" layoutX="20.0" layoutY="431.0" prefHeight="46.0" prefWidth="407.0" />
+                <Label fx:id="title1" alignment="CENTER" layoutX="15.0" layoutY="224.0" prefHeight="40.0" prefWidth="354.0">
                <font>
-                  <Font size="33.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </children>
+                  <Font size="17.0" />
+               </font></Label>
+                <Label fx:id="title2" alignment="CENTER" layoutX="25.0" layoutY="370.0" prefHeight="53.0" prefWidth="333.0">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Line endX="259.0" layoutX="178.0" layoutY="428.0" startX="-177.5" />
+            <Line endX="259.0" layoutX="178.0" layoutY="481.0" startX="-177.5" />
+            <Line endX="259.0" layoutX="180.0" layoutY="267.0" startX="-179.5" />
+            <Line endX="266.0" layoutX="167.0" layoutY="335.0" startX="-166.5" />
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>
