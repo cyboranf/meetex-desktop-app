@@ -1,11 +1,13 @@
 package com.example.MeetexApp.controller;
 
+import com.example.MeetexApp.domain.Post;
 import com.example.MeetexApp.domain.User;
 import com.example.MeetexApp.service.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -67,7 +70,71 @@ public class DashboardController implements Initializable {
         User user = userService.findByLogged();
         firstName.setText(user.getFirstName());
 
+        List<Post> posts = postService.findAll();
+        List<Post> postToView = new ArrayList<>();
+        for (int i = posts.size() - 1; i >= 0; i--) {
+            if (posts.get(i).getSender().getId().equals(user.getId())) {
+                postToView.add(posts.get(i));
+            }
+        }
+
+
+        if (postToView.size() != 0) {
+            //newest post
+            title.setText("Title: " + postToView.get(0).getTitle());
+            author.setText(postToView.get(0).getSender().getFirstName());
+            date.setText(postToView.get(0).getSendDate().toString());
+            postText.setText(postToView.get(0).getText().toString());
+            int reactions = postToView.get(0).getReactions();
+            likeCount.setText(String.valueOf(reactions));
+
+            title1.setText("Title: " + postToView.get(1).getTitle());
+            author1.setText(postToView.get(1).getSender().getFirstName());
+            date1.setText(postToView.get(1).getSendDate().toString());
+            postText1.setText(postToView.get(1).getText().toString());
+            int reactions1 = postToView.get(1).getReactions();
+            likeCount1.setText(String.valueOf(reactions1));
+
+            title2.setText("Title: " + postToView.get(2).getTitle());
+            author2.setText(postToView.get(2).getSender().getFirstName());
+            date2.setText(postToView.get(2).getSendDate().toString());
+            postText2.setText(postToView.get(2).getText().toString());
+            int reactions2 = postToView.get(2).getReactions();
+            likeCount2.setText(String.valueOf(reactions2));
+        }
+
     }
+
+    @FXML
+    private Label title;
+    @FXML
+    private Label title1;
+    @FXML
+    private Label title2;
+    @FXML
+    private Label date;
+    @FXML
+    private Label date1;
+    @FXML
+    private Label date2;
+    @FXML
+    private Label author;
+    @FXML
+    private Label author1;
+    @FXML
+    private Label author2;
+    @FXML
+    private Label postText;
+    @FXML
+    private Label postText1;
+    @FXML
+    private Label postText2;
+    @FXML
+    private Label likeCount;
+    @FXML
+    private Label likeCount1;
+    @FXML
+    private Label likeCount2;
 
     @FXML
     private Label logoutLabel;
