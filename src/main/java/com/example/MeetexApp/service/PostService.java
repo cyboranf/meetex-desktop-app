@@ -4,6 +4,7 @@ import com.example.MeetexApp.domain.Post;
 import com.example.MeetexApp.domain.User;
 import com.example.MeetexApp.repository.PostRepository;
 import com.example.MeetexApp.repository.UserRepository;
+import javafx.geometry.Pos;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,5 +25,13 @@ public class PostService {
 
     public List<Post> findAll() {
         return postRepository.findAll();
+    }
+
+    public void delete(Post post) {
+        postRepository.delete(post);
+    }
+
+    public void save(Post post) {
+        postRepository.save(post);
     }
 }
