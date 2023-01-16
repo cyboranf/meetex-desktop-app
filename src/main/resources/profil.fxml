@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="573.0" prefWidth="311.0" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="573.0" prefWidth="311.0" stylesheets="@views/css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.ProfilController">
    <styleClass>
       <String fx:value="dashSmallerPane" />
       <String fx:value="loginBC" />
@@ -28,31 +28,32 @@
             <Image url="@views/images/meetexlogoszary.png" />
          </image>
       </ImageView>
-      <Label fx:id="firstName" alignment="CENTER" layoutX="53.0" layoutY="294.0" prefHeight="32.0" prefWidth="201.0" text="email" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="email" alignment="CENTER" layoutX="53.0" layoutY="294.0" prefHeight="32.0" prefWidth="201.0" text="email" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNamelastName" alignment="CENTER" layoutX="65.0" layoutY="222.0" prefHeight="32.0" prefWidth="201.0" text="first and last name" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="friendsCount" alignment="CENTER" layoutX="56.0" layoutY="380.0" prefHeight="32.0" prefWidth="201.0" text="friends/friends count" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="firstName1" alignment="CENTER" layoutX="65.0" layoutY="222.0" prefHeight="32.0" prefWidth="201.0" text="first and last name" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="role" alignment="CENTER" layoutX="53.0" layoutY="466.0" prefHeight="32.0" prefWidth="201.0" text="role" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="firstName2" alignment="CENTER" layoutX="56.0" layoutY="380.0" prefHeight="32.0" prefWidth="201.0" text="friends/friends count" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Label fx:id="firstName3" alignment="CENTER" layoutX="53.0" layoutY="466.0" prefHeight="32.0" prefWidth="201.0" text="role" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Button layoutX="259.0" layoutY="298.0" mnemonicParsing="false" styleClass="loginBChild" text="edit" />
+      <Button layoutX="259.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchToEditEmail" styleClass="loginBChild" text="edit" />
       <Button layoutX="255.0" layoutY="384.0" mnemonicParsing="false" styleClass="loginBChild" text="show" />
-      <Button layoutX="259.0" layoutY="226.0" mnemonicParsing="false" styleClass="loginBChild" text="edit" />
+      <Button layoutX="259.0" layoutY="226.0" mnemonicParsing="false" onAction="#switchToEditName" styleClass="loginBChild" text="edit" />
       <Line endX="143.0" layoutX="158.0" layoutY="518.0" startX="-147.0" />
       <Line endX="143.0" layoutX="158.0" layoutY="354.0" startX="-147.0" />
       <Line endX="143.0" layoutX="157.0" layoutY="444.0" startX="-147.0" />
+      <Button layoutX="119.0" layoutY="193.0" mnemonicParsing="false" onAction="#showUser" prefHeight="24.0" prefWidth="77.0" styleClass="loginBChild" text="refresh" />
    </children>
 </AnchorPane>
