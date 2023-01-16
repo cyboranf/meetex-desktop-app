@@ -32,6 +32,10 @@ public class User {
     @Nullable
     private List<User> friends;
 
+    private int friendsCount;
+    private int msgCount;
+    private int notCount;
+
     @Column
     private String matchingPassword;
 
