@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Controller
@@ -45,17 +46,24 @@ public class LoginUiController implements Initializable {
     public void LogIn(ActionEvent event) throws IOException {
         List<User> userList = userService.findAll();
         AtomicReference<User> logUser = new AtomicReference<>(new User());
+        AtomicInteger x = new AtomicInteger();
         userList.forEach(u -> {
             if (u.getEmail().equals(emailField.getText()) && u.getPassword().equals(passwordField.getText())) {
                 logUser.set(u);
+                User user = logUser.get();
+                user.setLogged(true);
+                userService.save(user);
+
+                success.setText("Success!");
+                closeLabel.setText("You can close this window.");
+                x.set(1);
             }
         });
-        User user = logUser.get();
-        user.setLogged(true);
-        userService.save(user);
+        if (x.intValue() == 0) {
+            success.setText("Wrong email or password");
+            closeLabel.setText("Try again");
+        }
 
-        success.setText("Success!");
-        closeLabel.setText("You can close this window.");
     }
 
 

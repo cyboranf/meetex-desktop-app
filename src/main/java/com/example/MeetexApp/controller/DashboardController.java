@@ -76,16 +76,19 @@ public class DashboardController implements Initializable {
     @FXML
     public void deletePost0(ActionEvent event) throws IOException {
         postService.delete(postToView.get(0));
+        dashboardView();
     }
 
     @FXML
     public void deletePost1(ActionEvent event) throws IOException {
         postService.delete(postToView.get(1));
+        dashboardView();
     }
 
     @FXML
     public void deletePost2(ActionEvent event) throws IOException {
         postService.delete(postToView.get(2));
+        dashboardView();
     }
 
     public static int index = 0;
@@ -126,10 +129,11 @@ public class DashboardController implements Initializable {
         stage.show();
     }
 
-    public static int comIndex=0;
+    public static int comIndex = 0;
+
     @FXML
     public void addComment0(ActionEvent event) throws IOException {
-        comIndex=1;
+        comIndex = 1;
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(applicationContext::getBean);
@@ -137,20 +141,22 @@ public class DashboardController implements Initializable {
         stage.setScene(new Scene(fxmlLoader.load()));
         stage.show();
     }
+
     @FXML
     public void addComment1(ActionEvent event) throws IOException {
-        comIndex=1;
+        comIndex = 1;
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(applicationContext::getBean);
         fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
         stage.setScene(new Scene(fxmlLoader.load()));
-        comIndex=1;
+        comIndex = 1;
         stage.show();
     }
+
     @FXML
     public void addComment2(ActionEvent event) throws IOException {
-        comIndex=2;
+        comIndex = 2;
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(applicationContext::getBean);
@@ -165,6 +171,7 @@ public class DashboardController implements Initializable {
         Post post = postToView.get(0);
         post.setReactions(post.getReactions() + 1);
         postService.save(post);
+        dashboardView();
     }
 
     @FXML
@@ -172,6 +179,7 @@ public class DashboardController implements Initializable {
         Post post = postToView.get(1);
         post.setReactions(post.getReactions() + 1);
         postService.save(post);
+        dashboardView();
     }
 
     @FXML
@@ -179,6 +187,7 @@ public class DashboardController implements Initializable {
         Post post = postToView.get(2);
         post.setReactions(post.getReactions() + 1);
         postService.save(post);
+        dashboardView();
     }
 
     @FXML
@@ -204,45 +213,49 @@ public class DashboardController implements Initializable {
     public List<Post> postToView = new ArrayList<>();
 
     @FXML
-    public void dashboardView(ActionEvent event) throws IOException {
+    public void dashboardView() throws IOException {
         postToView.clear();
         User user = userService.findByLogged();
-        firstName.setText(user.getFirstName());
+        if (user.equals(null)) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            firstName.setText(user.getFirstName());
 
-        List<Post> posts = postService.findAll();
-        for (int i = posts.size() - 1; i >= 0; i--) {
-            if (posts.get(i).getSender().getId().equals(user.getId())) {
-                postToView.add(posts.get(i));
+            List<Post> posts = postService.findAll();
+            for (int i = posts.size() - 1; i >= 0; i--) {
+                if (posts.get(i).getSender().getId().equals(user.getId())) {
+                    postToView.add(posts.get(i));
+                }
             }
+
+            if (postToView.size() != 0) {
+                //newest post
+                title.setText("Title: " + postToView.get(0).getTitle());
+                author.setText(postToView.get(0).getSender().getFirstName());
+                date.setText(postToView.get(0).getSendDate().toString());
+                postText.setText(postToView.get(0).getText().toString());
+                int reactions = postToView.get(0).getReactions();
+                likeCount.setText(String.valueOf(reactions));
+
+                title1.setText("Title: " + postToView.get(1).getTitle());
+                author1.setText(postToView.get(1).getSender().getFirstName());
+                date1.setText(postToView.get(1).getSendDate().toString());
+                postText1.setText(postToView.get(1).getText().toString());
+                int reactions1 = postToView.get(1).getReactions();
+                likeCount1.setText(String.valueOf(reactions1));
+
+                title2.setText("Title: " + postToView.get(2).getTitle());
+                author2.setText(postToView.get(2).getSender().getFirstName());
+                date2.setText(postToView.get(2).getSendDate().toString());
+                postText2.setText(postToView.get(2).getText().toString());
+                int reactions2 = postToView.get(2).getReactions();
+                likeCount2.setText(String.valueOf(reactions2));
+            }
+            friendsCount.setText(user.getFriendsCount() + "");
+            messagesCount.setText(user.getMsgCount() + "");
+            notCount.setText(user.getNotCount() + "");
         }
 
-
-        if (postToView.size() != 0) {
-            //newest post
-            title.setText("Title: " + postToView.get(0).getTitle());
-            author.setText(postToView.get(0).getSender().getFirstName());
-            date.setText(postToView.get(0).getSendDate().toString());
-            postText.setText(postToView.get(0).getText().toString());
-            int reactions = postToView.get(0).getReactions();
-            likeCount.setText(String.valueOf(reactions));
-
-            title1.setText("Title: " + postToView.get(1).getTitle());
-            author1.setText(postToView.get(1).getSender().getFirstName());
-            date1.setText(postToView.get(1).getSendDate().toString());
-            postText1.setText(postToView.get(1).getText().toString());
-            int reactions1 = postToView.get(1).getReactions();
-            likeCount1.setText(String.valueOf(reactions1));
-
-            title2.setText("Title: " + postToView.get(2).getTitle());
-            author2.setText(postToView.get(2).getSender().getFirstName());
-            date2.setText(postToView.get(2).getSendDate().toString());
-            postText2.setText(postToView.get(2).getText().toString());
-            int reactions2 = postToView.get(2).getReactions();
-            likeCount2.setText(String.valueOf(reactions2));
-        }
-        friendsCount.setText(user.getFriendsCount() + "");
-        messagesCount.setText(user.getMsgCount() + "");
-        notCount.setText(user.getNotCount() + "");
 
     }
 
