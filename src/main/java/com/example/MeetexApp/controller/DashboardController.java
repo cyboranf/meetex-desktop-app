@@ -62,12 +62,6 @@ public class DashboardController implements Initializable {
         logoutLabel.setText("Logged out");
     }
 
-    //to change
-    @FXML
-    public void homeIconClick(ActionEvent event) throws IOException {
-        User user = userService.findByLogged();
-        notCount.setText(String.valueOf(notificationService.countOfNot(user)));
-    }
 
     @FXML
     public void addPost(ActionEvent event) throws IOException {
@@ -98,7 +92,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void editPost0(ActionEvent event) throws IOException {
-        index=0;
+        index = 0;
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -110,7 +104,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void editPost1(ActionEvent event) throws IOException {
-        index=1;
+        index = 1;
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -122,7 +116,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void editPost2(ActionEvent event) throws IOException {
-        index=2;
+        index = 2;
 
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -132,9 +126,38 @@ public class DashboardController implements Initializable {
         stage.show();
     }
 
+    public static int comIndex=0;
     @FXML
-    public void addComment(ActionEvent event) throws IOException {
-        //switch scene
+    public void addComment0(ActionEvent event) throws IOException {
+        comIndex=1;
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
+    @FXML
+    public void addComment1(ActionEvent event) throws IOException {
+        comIndex=1;
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        comIndex=1;
+        stage.show();
+    }
+    @FXML
+    public void addComment2(ActionEvent event) throws IOException {
+        comIndex=2;
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+
+        stage.show();
     }
 
     @FXML
@@ -158,6 +181,25 @@ public class DashboardController implements Initializable {
         postService.save(post);
     }
 
+    @FXML
+    public void showProfil(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/profil.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
+
+    @FXML
+    public void openChat(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(applicationContext::getBean);
+        fxmlLoader.setLocation(getClass().getResource("/userList.fxml"));
+        stage.setScene(new Scene(fxmlLoader.load()));
+        stage.show();
+    }
 
     public List<Post> postToView = new ArrayList<>();
 
@@ -198,7 +240,9 @@ public class DashboardController implements Initializable {
             int reactions2 = postToView.get(2).getReactions();
             likeCount2.setText(String.valueOf(reactions2));
         }
-
+        friendsCount.setText(user.getFriendsCount() + "");
+        messagesCount.setText(user.getMsgCount() + "");
+        notCount.setText(user.getNotCount() + "");
 
     }
 

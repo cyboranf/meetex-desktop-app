@@ -35,6 +35,7 @@
                </font>
             </Label>
             <Label fx:id="postText" alignment="TOP_CENTER" layoutX="88.0" layoutY="96.0" prefHeight="40.0" prefWidth="412.0" text="postText" />
+            <Button layoutX="496.0" layoutY="90.0" mnemonicParsing="false" onAction="#refresh" text="refresh" />
          </children>
       </AnchorPane>
    </children>
