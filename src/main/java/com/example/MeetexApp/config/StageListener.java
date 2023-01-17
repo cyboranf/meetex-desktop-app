@@ -1,6 +1,7 @@
 package com.example.MeetexApp.config;
 
 import com.example.MeetexApp.controller.DashboardController;
+import com.example.MeetexApp.domain.User;
 import com.example.MeetexApp.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 @Component
 public class StageListener implements ApplicationListener<JavafxApplication.StageReadyEvent> {
@@ -40,6 +42,11 @@ public class StageListener implements ApplicationListener<JavafxApplication.Stag
     @Override
     public void onApplicationEvent(JavafxApplication.StageReadyEvent stageReadyEvent) {
         try {
+            List<User> users = userService.findAll();
+            users.forEach(u -> {
+                u.setLogged(false);
+                userService.save(u);
+            });
             Stage stage = stageReadyEvent.getStage();
             URL url = fxml.getURL();
             FXMLLoader fxmlLoader = new FXMLLoader(url);
