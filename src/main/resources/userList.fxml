@@ -10,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="459.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MeetexApp.controller.ChatController">
    <children>
       <AnchorPane prefHeight="577.0" prefWidth="227.0" stylesheets="@views/css/style.css">
@@ -55,6 +54,32 @@
             <Line endX="139.0" layoutX="196.0" layoutY="274.0" startX="-185.0" />
             <Line endX="139.0" layoutX="196.0" layoutY="375.0" startX="-185.0" />
             <Line endX="139.0" layoutX="196.0" layoutY="478.0" startX="-185.0" />
+            <Label alignment="CENTER" layoutX="14.0" layoutY="27.0" prefHeight="40.0" prefWidth="312.0" text="Peoples you may know">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="user0" layoutX="14.0" layoutY="122.0" prefHeight="40.0" prefWidth="312.0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="user1" layoutX="14.0" layoutY="226.0" prefHeight="40.0" prefWidth="312.0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="user2" layoutX="14.0" layoutY="325.0" prefHeight="40.0" prefWidth="312.0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="user3" layoutX="14.0" layoutY="431.0" prefHeight="40.0" prefWidth="312.0">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="success" alignment="CENTER" layoutX="74.0" layoutY="504.0" prefHeight="47.0" prefWidth="201.0" textFill="#1fa12c" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="574.0" prefHeight="577.0" prefWidth="112.0" styleClass="loginBC" stylesheets="@views/css/style.css">
@@ -64,18 +89,15 @@
             <Line endX="139.0" layoutX="-43.0" layoutY="273.0" startX="59.0" />
             <Line endX="139.0" layoutX="-43.0" layoutY="376.0" startX="59.0" />
             <Line endX="139.0" layoutX="-44.0" layoutY="481.0" startX="59.0" />
-            <Button layoutX="28.0" layoutY="38.0" mnemonicParsing="false" text="chat" />
-            <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="24.0" layoutY="98.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="29.0" layoutY="122.0" mnemonicParsing="false" text="chat" />
-            <Button layoutX="24.0" layoutY="200.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="29.0" layoutY="224.0" mnemonicParsing="false" text="chat" />
-            <Button layoutX="25.0" layoutY="300.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="28.0" layoutY="324.0" mnemonicParsing="false" text="chat" />
-            <Button layoutX="24.0" layoutY="402.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="29.0" layoutY="426.0" mnemonicParsing="false" text="chat" />
-            <Button layoutX="24.0" layoutY="497.0" mnemonicParsing="false" text="invite" />
-            <Button layoutX="28.0" layoutY="521.0" mnemonicParsing="false" text="chat" />
+            <Button layoutX="24.0" layoutY="98.0" mnemonicParsing="false" onAction="#invite0" text="invite" />
+            <Button layoutX="29.0" layoutY="122.0" mnemonicParsing="false" onAction="#chat0" text="chat" />
+            <Button layoutX="24.0" layoutY="200.0" mnemonicParsing="false" onAction="#invite1" text="invite" />
+            <Button layoutX="29.0" layoutY="224.0" mnemonicParsing="false" onAction="#chat1" text="chat" />
+            <Button layoutX="25.0" layoutY="300.0" mnemonicParsing="false" onAction="#invite2" text="invite" />
+            <Button layoutX="28.0" layoutY="324.0" mnemonicParsing="false" onAction="#chat2" text="chat" />
+            <Button layoutX="24.0" layoutY="402.0" mnemonicParsing="false" onAction="#invite3" text="invite" />
+            <Button layoutX="29.0" layoutY="426.0" mnemonicParsing="false" onAction="#chat3" text="chat" />
+            <Button layoutX="17.0" layoutY="512.0" mnemonicParsing="false" onAction="#refreshUserList" prefHeight="24.0" prefWidth="81.0" text="refresh" />
          </children>
       </AnchorPane>
    </children>
