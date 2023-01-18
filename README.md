@@ -50,7 +50,7 @@ Social media app (inspired by Facebook). Made in combination -> Java Fx &amp; Sp
   <details>
        <summary>Friends</summary>
  
- ![view App](/src/images/friends.png)
+ ![view App]
    
  </details>
  
