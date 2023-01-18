@@ -12,4 +12,8 @@ Social media app (inspired by Facebook). Made in combination -> Java Fx &amp; Sp
  Spring JPA,
  Spring Hibernate
  
- 
+<details>
+       <summary>Login</summary>
+![alt text][1]
+ </details>
+ [1]:https://github.com/cyboranf/MeetexApp/images/login.png?raw=true
