@@ -98,9 +98,9 @@
                     </children>
                 </AnchorPane>
                 <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />
-                <Label fx:id="logoutLabel" alignment="CENTER" layoutX="162.0" layoutY="267.0" prefHeight="40.0" prefWidth="244.0" textAlignment="CENTER" textFill="#ee0d0d" wrapText="true">
+                <Label fx:id="logoutLabel" alignment="CENTER" layoutX="10.0" layoutY="267.0" prefHeight="40.0" prefWidth="419.0" textAlignment="CENTER" textFill="#ee0d0d" wrapText="true">
                     <font>
-                        <Font size="33.0" />
+                        <Font size="26.0" />
                     </font>
                 </Label>
                 <AnchorPane layoutY="80.0" prefHeight="127.0" prefWidth="566.0">

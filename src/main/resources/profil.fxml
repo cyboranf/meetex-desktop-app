@@ -49,7 +49,7 @@
          </font>
       </Label>
       <Button layoutX="259.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchToEditEmail" styleClass="loginBChild" text="edit" />
-      <Button layoutX="255.0" layoutY="384.0" mnemonicParsing="false" styleClass="loginBChild" text="show" />
+      <Button layoutX="255.0" layoutY="384.0" mnemonicParsing="false" onAction="#showFriendsList" styleClass="loginBChild" text="show" />
       <Button layoutX="259.0" layoutY="226.0" mnemonicParsing="false" onAction="#switchToEditName" styleClass="loginBChild" text="edit" />
       <Line endX="143.0" layoutX="158.0" layoutY="518.0" startX="-147.0" />
       <Line endX="143.0" layoutX="158.0" layoutY="354.0" startX="-147.0" />
