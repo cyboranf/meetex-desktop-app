@@ -28,7 +28,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findByLogged() {
+    public List<User> findByLogged() {
+        return userRepository.findByLogged();
+    }
+
+    public User findByLogged2() {
         return userRepository.findByLogged().get(0);
     }
 
