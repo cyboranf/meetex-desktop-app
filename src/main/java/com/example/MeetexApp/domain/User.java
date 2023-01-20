@@ -28,7 +28,7 @@ public class User {
     @Column(length = 100)
     private String password;
 
-    @OneToMany
+    @ManyToMany
     @Nullable
     private List<User> friends;
 
