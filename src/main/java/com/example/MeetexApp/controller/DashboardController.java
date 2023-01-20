@@ -55,78 +55,120 @@ public class DashboardController implements Initializable {
         stage.show();
     }
 
+
     @FXML
     public void logout(ActionEvent event) throws IOException {
-        User user = userService.findByLogged();
-        user.setLogged(false);
-        logoutLabel.setText("Logged out");
-    }
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            User user = logUser.get(0);
+            user.setLogged(false);
+            userService.save(user);
+            logoutLabel.setText("Logged out");
+        }
 
+    }
 
     @FXML
     public void addPost(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/addPost.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/addPost.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
+
     }
 
     @FXML
     public void deletePost0(ActionEvent event) throws IOException {
-        postService.delete(postToView.get(0));
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            postService.delete(postToView.get(0));
+            dashboardView();
+        }
     }
 
     @FXML
     public void deletePost1(ActionEvent event) throws IOException {
-        postService.delete(postToView.get(1));
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            postService.delete(postToView.get(1));
+            dashboardView();
+        }
     }
 
     @FXML
     public void deletePost2(ActionEvent event) throws IOException {
-        postService.delete(postToView.get(2));
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            postService.delete(postToView.get(2));
+            dashboardView();
+        }
     }
 
     public static int index = 0;
 
     @FXML
     public void editPost0(ActionEvent event) throws IOException {
-        index = 0;
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            index = 0;
 
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     @FXML
     public void editPost1(ActionEvent event) throws IOException {
-        index = 1;
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            index = 1;
 
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     @FXML
     public void editPost2(ActionEvent event) throws IOException {
-        index = 2;
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            index = 2;
 
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     public static int comIndex = 0;
@@ -168,59 +210,90 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void addLike0(ActionEvent event) throws IOException {
-        Post post = postToView.get(0);
-        post.setReactions(post.getReactions() + 1);
-        postService.save(post);
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            Post post = postToView.get(0);
+            post.setReactions(post.getReactions() + 1);
+            postService.save(post);
+            dashboardView();
+        }
     }
 
     @FXML
     public void addLike1(ActionEvent event) throws IOException {
-        Post post = postToView.get(1);
-        post.setReactions(post.getReactions() + 1);
-        postService.save(post);
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            Post post = postToView.get(1);
+            post.setReactions(post.getReactions() + 1);
+            postService.save(post);
+            dashboardView();
+        }
     }
 
     @FXML
     public void addLike2(ActionEvent event) throws IOException {
-        Post post = postToView.get(2);
-        post.setReactions(post.getReactions() + 1);
-        postService.save(post);
-        dashboardView();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            Post post = postToView.get(2);
+            post.setReactions(post.getReactions() + 1);
+            postService.save(post);
+            dashboardView();
+        }
     }
 
     @FXML
     public void showProfil(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/profil.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            dashboardView();
+            logoutLabel.setText("");
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/profil.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
+
     }
 
     @FXML
     public void openChat(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/userList.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/userList.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     public List<Post> postToView = new ArrayList<>();
+    public List<User> logUser = new ArrayList<>();
 
     @FXML
     public void dashboardView() throws IOException {
         postToView.clear();
-        User user = userService.findByLogged();
-        if (user.equals(null)) {
+        logUser = userService.findByLogged();
+        if (logUser.size() == 0) {
             logoutLabel.setText("Sign in to use app");
         } else {
+            logoutLabel.setText("");
+            User user = logUser.get(0);
             firstName.setText(user.getFirstName());
 
+            //little change to show freinds posts too
             List<Post> posts = postService.findAll();
             for (int i = posts.size() - 1; i >= 0; i--) {
                 if (posts.get(i).getSender().getId().equals(user.getId())) {
