@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.lang.Nullable;
 
 
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -26,9 +27,10 @@ public class User {
     private String lastName;
 
     @Column(length = 100)
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,100}$")
     private String password;
 
-    @ManyToMany
+    @OneToMany
     @Nullable
     private List<User> friends;
 
