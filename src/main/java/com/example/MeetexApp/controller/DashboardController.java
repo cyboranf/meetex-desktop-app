@@ -66,6 +66,7 @@ public class DashboardController implements Initializable {
             user.setLogged(false);
             userService.save(user);
             logoutLabel.setText("Logged out");
+            dashboardView();
         }
 
     }
@@ -175,37 +176,50 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void addComment0(ActionEvent event) throws IOException {
-        comIndex = 1;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            comIndex = 0;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     @FXML
     public void addComment1(ActionEvent event) throws IOException {
-        comIndex = 1;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        comIndex = 1;
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            comIndex = 1;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     @FXML
     public void addComment2(ActionEvent event) throws IOException {
-        comIndex = 2;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-
-        stage.show();
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            logoutLabel.setText("");
+            comIndex = 2;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        }
     }
 
     @FXML
@@ -293,15 +307,9 @@ public class DashboardController implements Initializable {
             User user = logUser.get(0);
             firstName.setText(user.getFirstName());
 
-            //little change to show freinds posts too
-            List<Post> posts = postService.findAll();
-            for (int i = posts.size() - 1; i >= 0; i--) {
-                if (posts.get(i).getSender().getId().equals(user.getId())) {
-                    postToView.add(posts.get(i));
-                }
-            }
+            postToView = postService.findPostToShow(user);
 
-            if (postToView.size() != 0) {
+            if (postToView.size() >= 3) {
                 //newest post
                 title.setText("Title: " + postToView.get(0).getTitle());
                 author.setText(postToView.get(0).getSender().getFirstName());
@@ -323,6 +331,72 @@ public class DashboardController implements Initializable {
                 postText2.setText(postToView.get(2).getText().toString());
                 int reactions2 = postToView.get(2).getReactions();
                 likeCount2.setText(String.valueOf(reactions2));
+            }
+            if (postToView.size() == 2) {
+                title.setText("Title: " + postToView.get(0).getTitle());
+                author.setText(postToView.get(0).getSender().getFirstName());
+                date.setText(postToView.get(0).getSendDate().toString());
+                postText.setText(postToView.get(0).getText().toString());
+                int reactions = postToView.get(0).getReactions();
+                likeCount.setText(String.valueOf(reactions));
+
+                title1.setText("Title: " + postToView.get(1).getTitle());
+                author1.setText(postToView.get(1).getSender().getFirstName());
+                date1.setText(postToView.get(1).getSendDate().toString());
+                postText1.setText(postToView.get(1).getText().toString());
+                int reactions1 = postToView.get(1).getReactions();
+                likeCount1.setText(String.valueOf(reactions1));
+
+                title2.setText("");
+                author2.setText("");
+                date2.setText("");
+                postText2.setText("");
+                int reactions2 = 0;
+                likeCount2.setText("");
+            }
+            if (postToView.size() == 1) {
+                title.setText("Title: " + postToView.get(0).getTitle());
+                author.setText(postToView.get(0).getSender().getFirstName());
+                date.setText(postToView.get(0).getSendDate().toString());
+                postText.setText(postToView.get(0).getText().toString());
+                int reactions = postToView.get(0).getReactions();
+                likeCount.setText(String.valueOf(reactions));
+
+                title2.setText("");
+                author2.setText("");
+                date2.setText("");
+                postText2.setText("");
+                int reactions2 = 0;
+                likeCount2.setText("");
+
+                title1.setText("");
+                author1.setText("");
+                date1.setText("");
+                postText1.setText("");
+                int reactions1 = 0;
+                likeCount1.setText("");
+            }
+            if (postToView.size() == 0) {
+                title.setText("");
+                author.setText("");
+                date.setText("");
+                postText.setText("");
+                int reactions = 0;
+                likeCount.setText("");
+
+                title2.setText("");
+                author2.setText("");
+                date2.setText("");
+                postText2.setText("");
+                int reactions2 = 0;
+                likeCount2.setText("");
+
+                title1.setText("");
+                author1.setText("");
+                date1.setText("");
+                postText1.setText("");
+                int reactions1 = 0;
+                likeCount1.setText("");
             }
             friendsCount.setText(user.getFriendsCount() + "");
             messagesCount.setText(user.getMsgCount() + "");
