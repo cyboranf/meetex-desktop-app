@@ -36,141 +36,257 @@ public class ChatController implements Initializable {
 
     @FXML
     public void logout(ActionEvent event) throws IOException {
-        User user = userService.findByLogged();
+        User user = userService.findByLogged2();
         user.setLogged(false);
         logoutLabel.setText("Logged out");
     }
 
+    public int indexToChat = 0;
+    public List<User> friends = new ArrayList<>();
+    public List<User> toShow = new ArrayList<>();
+
     @FXML
     public void refreshUserList() {
-        user = userService.findByLogged();
+        user = userService.findByLogged2();
         firstName.setText(user.getFirstName());
 
         //change it a little
-        List<User> allUsers = userService.findAll();
-        allUsers.remove(user);
+        friends = userService.findAll();
 
-        user0.setText(allUsers.get(1).getFirstName() + " " + allUsers.get(1).getLastName());
-        user1.setText(allUsers.get(2).getFirstName() + " " + allUsers.get(2).getLastName());
-        user2.setText(allUsers.get(3).getFirstName() + " " + allUsers.get(3).getLastName());
-        user3.setText(allUsers.get(4).getFirstName() + " " + allUsers.get(4).getLastName());
+        for (int i = 0; i < friends.size(); i++) {
+            if (friends.get(i).getId().equals(user.getId())) {
+
+            } else {
+                toShow.add(friends.get(i));
+            }
+        }
+
+        if (toShow.size() >= 4) {
+            user0.setText(toShow.get(0).getFirstName() + " " + toShow.get(0).getLastName());
+            user1.setText(toShow.get(1).getFirstName() + " " + toShow.get(1).getLastName());
+            user2.setText(toShow.get(2).getFirstName() + " " + toShow.get(2).getLastName());
+            user3.setText(toShow.get(3).getFirstName() + " " + friends.get(3).getLastName());
+            indexToChat = 4;
+        }
+        if (toShow.size() == 3) {
+            user0.setText(toShow.get(0).getFirstName() + " " + toShow.get(0).getLastName());
+            user1.setText(toShow.get(1).getFirstName() + " " + toShow.get(1).getLastName());
+            user2.setText(toShow.get(2).getFirstName() + " " + toShow.get(2).getLastName());
+            user3.setText("");
+            indexToChat = 3;
+        }
+        if (toShow.size() == 2) {
+            user0.setText(toShow.get(0).getFirstName() + " " + toShow.get(0).getLastName());
+            user1.setText(toShow.get(1).getFirstName() + " " + toShow.get(1).getLastName());
+            user2.setText("");
+            user3.setText("");
+            indexToChat = 2;
+        }
+        if (toShow.size() == 1) {
+            user0.setText(toShow.get(0).getFirstName() + " " + toShow.get(0).getLastName());
+            user1.setText("");
+            user2.setText("");
+            user3.setText("");
+            indexToChat = 1;
+        }
+        if (toShow.size() == 0) {
+            user0.setText("");
+            user1.setText("");
+            user2.setText("");
+            user3.setText("");
+            indexToChat = 0;
+        }
+
+
     }
 
     public User user;
 
     @FXML
     public void invite0() {
-        List<User> allUsers = userService.findAll();
-        allUsers.remove(user);
+        if (indexToChat > 0) {
+            cantChat.setText("");
+            List<User> allUsers = userService.findAll();
+            allUsers.remove(user);
 
-        User toInvite = allUsers.get(1);
-        toInvite.setNotCount(toInvite.getNotCount() + 1);
-        userService.save(toInvite);
-        success.setText("Success you sent friends request");
+            User toInvite = allUsers.get(1);
+            toInvite.setNotCount(toInvite.getNotCount() + 1);
+            userService.save(toInvite);
+            success.setText("Success, you sent friends request");
+        } else {
+            cantChat.setText("Can not send a friend request");
+        }
+
     }
 
     @FXML
     public void invite1() {
-        List<User> allUsers = userService.findAll();
-        allUsers.remove(user);
+        if (indexToChat > 1) {
+            cantChat.setText("");
+            List<User> allUsers = userService.findAll();
+            allUsers.remove(user);
 
-        User toInvite = allUsers.get(2);
-        toInvite.setNotCount(toInvite.getNotCount() + 1);
-        userService.save(toInvite);
-        success.setText("Success you sent friends request");
+            User toInvite = allUsers.get(2);
+            toInvite.setNotCount(toInvite.getNotCount() + 1);
+            userService.save(toInvite);
+            success.setText("Success, you sent friends request");
+        } else {
+            cantChat.setText("Can not send a friend request");
+        }
+
     }
 
     @FXML
     public void invite2() {
-        User user = userService.findByLogged();
+        if (indexToChat > 2) {
+            cantChat.setText("");
+            User user = userService.findByLogged2();
 
-        List<User> allUsers = userService.findAll();
-        allUsers.remove(user);
+            List<User> allUsers = userService.findAll();
+            allUsers.remove(user);
 
-        User toInvite = allUsers.get(3);
-        toInvite.setNotCount(toInvite.getNotCount() + 1);
-        userService.save(toInvite);
-        success.setText("Success you sent friends request");
+            User toInvite = allUsers.get(3);
+            toInvite.setNotCount(toInvite.getNotCount() + 1);
+            userService.save(toInvite);
+            success.setText("Success, you sent friends request");
+
+        } else {
+            cantChat.setText("Can not send a friend request");
+        }
+
     }
 
     @FXML
     public void invite3() {
-        User user = userService.findByLogged();
+        if (indexToChat > 3) {
+            cantChat.setText("");
+            User user = userService.findByLogged2();
 
-        List<User> allUsers = userService.findAll();
-        allUsers.remove(user);
+            List<User> allUsers = userService.findAll();
+            allUsers.remove(user);
 
-        User toInvite = allUsers.get(4);
-        toInvite.setNotCount(toInvite.getNotCount() + 1);
-        userService.save(toInvite);
-        success.setText("Success you sent friends request");
+            User toInvite = allUsers.get(4);
+            toInvite.setNotCount(toInvite.getNotCount() + 1);
+            userService.save(toInvite);
+            success.setText("Success you sent friends request");
+        } else {
+            cantChat.setText("Can not send a friend request");
+        }
+
     }
 
     public int chatIndex = 0;
 
     @FXML
     public void chat0() throws IOException {
-        chatIndex = 0;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (indexToChat > 0) {
+            cantChat.setText("");
+            chatIndex = 0;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } else {
+            cantChat.setText("Can not open chat");
+        }
+
     }
 
     @FXML
     public void chat1() throws IOException {
-        chatIndex = 1;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (indexToChat > 1) {
+            cantChat.setText("");
+            chatIndex = 1;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } else {
+            cantChat.setText("Can not open chat");
+        }
     }
 
     @FXML
     public void chat2() throws IOException {
-        chatIndex = 2;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (indexToChat > 2) {
+            cantChat.setText("");
+            chatIndex = 2;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } else {
+            cantChat.setText("Can not open chat");
+        }
 
     }
 
     @FXML
     public void chat3() throws IOException {
-        chatIndex = 3;
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(applicationContext::getBean);
-        fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-        stage.show();
+        if (indexToChat > 3) {
+            cantChat.setText("");
+            chatIndex = 3;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(applicationContext::getBean);
+            fxmlLoader.setLocation(getClass().getResource("/chat.fxml"));
+            stage.setScene(new Scene(fxmlLoader.load()));
+            stage.show();
+        } else {
+            cantChat.setText("Can not open chat");
+        }
+
     }
 
     @FXML
     public void chatRefresh() {
         loggedUsername.setText(user.getFirstName());
-        List<User> userList = userService.findAll();
-        chattedUser.setText(userList.get(chatIndex + 1).getFirstName());
 
-        List<Messages> messagesFromMe = messagesService.findAllFromMe(user.getId(), userList.get(chatIndex + 1).getId());
-        List<Messages> messagesToMe = messagesService.findAllToMe(userList.get(chatIndex + 1).getId(), user.getId());
-        try {
+        chattedUser.setText(toShow.get(chatIndex).getFirstName());
+
+        List<Messages> messagesFromMe = messagesService.findAllFromMe(user.getId(), friends.get(chatIndex).getId());
+        List<Messages> messagesToMe = messagesService.findAllToMe(toShow.get(chatIndex).getId(), user.getId());
+
+        if (messagesFromMe.size() == 0) {
+            myMsg0.setText("");
+            myMsg1.setText("");
+            myMsg2.setText("");
+        }
+        if (messagesFromMe.size() > 0) {
+            myMsg0.setText(messagesFromMe.get(1).getText());
+            myMsg1.setText("");
+            myMsg2.setText("");
+        }
+        if (messagesFromMe.size() > 1) {
             myMsg0.setText(messagesFromMe.get(1).getText());
             myMsg1.setText(messagesFromMe.get(0).getText());
+            myMsg2.setText("");
+        }
+        if (messagesFromMe.size() > 2) {
+            myMsg0.setText(messagesFromMe.get(1).getText());
+            myMsg1.setText(messagesFromMe.get(0).getText());
+            myMsg2.setText("");
+        }
 
-
+        if (messagesToMe.size() == 0) {
+            toMeMsg0.setText("");
+            toMeMsg1.setText("");
+        }
+        if (messagesToMe.size() > 0) {
+            toMeMsg0.setText(messagesToMe.get(1).getText());
+            toMeMsg1.setText("");
+        }
+        if (messagesToMe.size() > 1) {
             toMeMsg0.setText(messagesToMe.get(1).getText());
             toMeMsg1.setText(messagesToMe.get(0).getText());
-        } catch (NullPointerException e) {
-            error.setText("Something went wrong, try again later.");
         }
+
     }
 
     @FXML
@@ -188,6 +304,8 @@ public class ChatController implements Initializable {
         chatRefresh();
     }
 
+    @FXML
+    private Label cantChat;
     @FXML
     private TextArea msgText;
     @FXML
