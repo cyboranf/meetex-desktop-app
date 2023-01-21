@@ -3,13 +3,13 @@ package com.example.MeetexApp.controller;
 //import com.example.MeetexApp.config.StageManager;
 
 import com.example.MeetexApp.domain.User;
+import com.example.MeetexApp.initializer.FriendsInitializer;
+import com.example.MeetexApp.service.PostService;
 import com.example.MeetexApp.service.UserService;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,20 +17,37 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 public class RegistrationUiController implements Initializable {
     private final UserService userService;
     private final ApplicationContext applicationContext;
+    private final PasswordEncoder passwordEncoder;
+    private final PostService postService;
 
-    public RegistrationUiController(UserService userService, ApplicationContext applicationContext) {
+
+    public RegistrationUiController(UserService userService, ApplicationContext applicationContext, PasswordEncoder passwordEncoder, PostService postService) {
         this.userService = userService;
         this.applicationContext = applicationContext;
+        this.passwordEncoder = passwordEncoder;
+
+        this.postService = postService;
+    }
+
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static boolean validate(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.find();
     }
 
     @FXML
@@ -47,7 +64,6 @@ public class RegistrationUiController implements Initializable {
     public void createUser(ActionEvent event) {
         int count = 0;
         User user = new User();
-
         if (firstName.getText().isEmpty()) {
             emptyName.setText("First name is empty");
         } else {
@@ -65,6 +81,11 @@ public class RegistrationUiController implements Initializable {
         if (email.getText().isEmpty()) {
             emptyEmail.setText("Email is empty");
         } else {
+            count++;
+        }
+        if (!validate(email.getText())) {
+            emptyEmail.setText("Wrong email");
+        } else {
             user.setEmail(email.getText());
             count++;
         }
@@ -77,11 +98,14 @@ public class RegistrationUiController implements Initializable {
             user.setMatchingPassword(matchingPassword.getText());
             count++;
         }
-        if (count == 4) {
+
+        if (count == 5) {
             user.setRole("USER");
             successLabel.setText("Congrats, u have an account.");
             closeWindowText.setText("Close this window.");
             userService.save(user);
+            FriendsInitializer friendsInitializer = new FriendsInitializer(userService, passwordEncoder, postService);
+            friendsInitializer.createFirstFriends(user);
         }
     }
 

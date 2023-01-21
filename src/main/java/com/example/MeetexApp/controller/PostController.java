@@ -34,7 +34,7 @@ public class PostController implements Initializable {
     @FXML
     public void addPost(ActionEvent event) {
         LocalDate date = LocalDate.now();
-        User user = userService.findByLogged();
+        User user = userService.findByLogged2();
 
         Post post = new Post();
         post.setReactions(0);
@@ -50,7 +50,7 @@ public class PostController implements Initializable {
     @FXML
     public void editPost(ActionEvent event) {
         List<Post> postToView = new ArrayList<>();
-        User user = userService.findByLogged();
+        User user = userService.findByLogged2();
 
         List<Post> posts = postService.findAll();
         for (int i = posts.size() - 1; i >= 0; i--) {

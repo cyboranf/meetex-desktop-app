@@ -88,34 +88,50 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void deletePost0(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 0) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                postService.delete(postToView.get(0));
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            postService.delete(postToView.get(0));
-            dashboardView();
+            errorOperation.setText("Can not delete post");
         }
+
     }
 
     @FXML
     public void deletePost1(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 1) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                postService.delete(postToView.get(1));
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            postService.delete(postToView.get(1));
-            dashboardView();
+            errorOperation.setText("Can not delete post");
         }
     }
 
     @FXML
     public void deletePost2(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 2) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                postService.delete(postToView.get(2));
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            postService.delete(postToView.get(2));
-            dashboardView();
+            errorOperation.setText("Can not delete post");
         }
     }
 
@@ -123,142 +139,191 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void editPost0(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 0) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                logoutLabel.setText("");
+                index = 0;
+                errorOperation.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            index = 0;
-
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not edit post");
         }
     }
 
     @FXML
     public void editPost1(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 1) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                logoutLabel.setText("");
+                index = 1;
+                errorOperation.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            index = 1;
-
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not edit post");
         }
+
     }
 
     @FXML
     public void editPost2(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 2) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                logoutLabel.setText("");
+                index = 2;
+                errorOperation.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            index = 2;
-
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/editPost.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not edit post");
         }
+
     }
 
     public static int comIndex = 0;
 
     @FXML
     public void addComment0(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 0) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                logoutLabel.setText("");
+                errorOperation.setText("");
+                comIndex = 0;
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            comIndex = 0;
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not add comment");
         }
+
     }
 
     @FXML
     public void addComment1(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 1) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                logoutLabel.setText("");
+                errorOperation.setText("");
+                comIndex = 1;
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            comIndex = 1;
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not add comment");
         }
+
     }
 
     @FXML
     public void addComment2(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 2) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                comIndex = 2;
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            }
         } else {
-            logoutLabel.setText("");
-            comIndex = 2;
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(applicationContext::getBean);
-            fxmlLoader.setLocation(getClass().getResource("/addComment.fxml"));
-            stage.setScene(new Scene(fxmlLoader.load()));
-            stage.show();
+            errorOperation.setText("Can not add comment");
         }
+
     }
 
     @FXML
     public void addLike0(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 0) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                Post post = postToView.get(0);
+                post.setReactions(post.getReactions() + 1);
+                postService.save(post);
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            Post post = postToView.get(0);
-            post.setReactions(post.getReactions() + 1);
-            postService.save(post);
-            dashboardView();
+            errorOperation.setText("Can not add like");
         }
     }
 
     @FXML
     public void addLike1(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 1) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                Post post = postToView.get(1);
+                post.setReactions(post.getReactions() + 1);
+                postService.save(post);
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            Post post = postToView.get(1);
-            post.setReactions(post.getReactions() + 1);
-            postService.save(post);
-            dashboardView();
+            errorOperation.setText("Can not add like");
         }
+
     }
 
     @FXML
     public void addLike2(ActionEvent event) throws IOException {
-        if (logUser.size() == 0) {
-            logoutLabel.setText("Sign in to use app");
+        if (toOperations > 2) {
+            if (logUser.size() == 0) {
+                logoutLabel.setText("Sign in to use app");
+            } else {
+                errorOperation.setText("");
+                logoutLabel.setText("");
+                Post post = postToView.get(2);
+                post.setReactions(post.getReactions() + 1);
+                postService.save(post);
+                dashboardView();
+            }
         } else {
-            logoutLabel.setText("");
-            Post post = postToView.get(2);
-            post.setReactions(post.getReactions() + 1);
-            postService.save(post);
-            dashboardView();
+            errorOperation.setText("Can not add like");
         }
+
     }
 
     @FXML
@@ -296,8 +361,11 @@ public class DashboardController implements Initializable {
     public List<Post> postToView = new ArrayList<>();
     public List<User> logUser = new ArrayList<>();
 
+    public int toOperations = 0;
+
     @FXML
     public void dashboardView() throws IOException {
+        errorOperation.setText("");
         postToView.clear();
         logUser = userService.findByLogged();
         if (logUser.size() == 0) {
@@ -331,6 +399,7 @@ public class DashboardController implements Initializable {
                 postText2.setText(postToView.get(2).getText().toString());
                 int reactions2 = postToView.get(2).getReactions();
                 likeCount2.setText(String.valueOf(reactions2));
+                toOperations = 3;
             }
             if (postToView.size() == 2) {
                 title.setText("Title: " + postToView.get(0).getTitle());
@@ -353,6 +422,7 @@ public class DashboardController implements Initializable {
                 postText2.setText("");
                 int reactions2 = 0;
                 likeCount2.setText("");
+                toOperations = 2;
             }
             if (postToView.size() == 1) {
                 title.setText("Title: " + postToView.get(0).getTitle());
@@ -375,6 +445,7 @@ public class DashboardController implements Initializable {
                 postText1.setText("");
                 int reactions1 = 0;
                 likeCount1.setText("");
+                toOperations = 1;
             }
             if (postToView.size() == 0) {
                 title.setText("");
@@ -397,6 +468,7 @@ public class DashboardController implements Initializable {
                 postText1.setText("");
                 int reactions1 = 0;
                 likeCount1.setText("");
+                toOperations = 0;
             }
             friendsCount.setText(user.getFriendsCount() + "");
             messagesCount.setText(user.getMsgCount() + "");
@@ -406,6 +478,8 @@ public class DashboardController implements Initializable {
 
     }
 
+    @FXML
+    private Label errorOperation;
     @FXML
     private Label friendsCount;
     @FXML
