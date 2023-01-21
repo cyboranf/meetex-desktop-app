@@ -54,6 +54,7 @@
                         <Button layoutX="442.0" layoutY="8.0" mnemonicParsing="false" onAction="#addPost" prefHeight="1.0" prefWidth="122.0" text="add post" />
                         <Button layoutY="7.0" mnemonicParsing="false" onAction="#openSignInView" prefHeight="24.0" prefWidth="147.0" text="Sign In" textFill="#e40c0c" />
                         <Line endX="452.0" layoutX="114.0" startX="-113.0" />
+                  <Label fx:id="errorOperation" layoutX="172.0" layoutY="11.0" prefHeight="16.0" prefWidth="237.0" textFill="#d01111" />
                     </children>
                 </AnchorPane>
                 <AnchorPane layoutX="1.0" prefHeight="79.0" prefWidth="565.0" styleClass="loginBC">
