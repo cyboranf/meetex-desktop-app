@@ -6,7 +6,9 @@ import com.example.MeetexApp.service.PostService;
 import com.example.MeetexApp.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FriendsInitializer {
@@ -29,6 +31,7 @@ public class FriendsInitializer {
         Post post1 = new Post();
         Post post2 = new Post();
         Post post3 = new Post();
+        LocalDate date = LocalDate.now();
         List<User> newFriends = new ArrayList<>();
         if (userService.findByEmail("admin@admin.com").size() == 0 || userService.findByEmail("admin2@admin.com").size() == 0 || userService.findByEmail("admin3@admin.com").size() == 0) {
             newFriends.clear();
@@ -43,6 +46,7 @@ public class FriendsInitializer {
             post1.setSender(user1);
             post1.setReactions(0);
             post1.setAddressee(user1.getFriends());
+            post1.setSendDate(date);
             postService.save(post1);
 
 
@@ -56,8 +60,9 @@ public class FriendsInitializer {
             post2.setTitle("Title of first post from admin2");
             post2.setSender(user2);
             post2.setReactions(0);
+            post2.setSendDate(date);
             post2.setAddressee(user2.getFriends());
-            postService.save(post1);
+            postService.save(post2);
 
 
             user3.setEmail("admin3@admin.com");
@@ -65,6 +70,7 @@ public class FriendsInitializer {
             user3.setLastName("admin3");
             userService.save(user3);
 
+            post3.setSendDate(date);
             post3.setReactions(0);
             post3.setText("This is first post from admin3, welcome to Meetex");
             post3.setTitle("Title of first post from admin3");
