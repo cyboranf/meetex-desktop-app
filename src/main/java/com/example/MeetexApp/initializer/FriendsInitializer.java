@@ -45,6 +45,7 @@ public class FriendsInitializer {
             post1.setTitle("Title of first post from admin1");
             post1.setSender(user1);
             post1.setReactions(0);
+            post1.setComCount(0);
             post1.setAddressee(user1.getFriends());
             post1.setSendDate(date);
             postService.save(post1);
@@ -59,6 +60,7 @@ public class FriendsInitializer {
             post2.setText("This is first post from admin2, welcome to Meetex");
             post2.setTitle("Title of first post from admin2");
             post2.setSender(user2);
+            post2.setComCount(0);
             post2.setReactions(0);
             post2.setSendDate(date);
             post2.setAddressee(user2.getFriends());
@@ -75,6 +77,7 @@ public class FriendsInitializer {
             post3.setText("This is first post from admin3, welcome to Meetex");
             post3.setTitle("Title of first post from admin3");
             post3.setSender(user3);
+            post3.setComCount(0);
             post3.setReactions(0);
             post3.setAddressee(user3.getFriends());
             postService.save(post3);
@@ -98,14 +101,15 @@ public class FriendsInitializer {
             post1.setTitle("Title of first post from admin4");
             post1.setSender(user1);
             post1.setReactions(0);
+            post1.setComCount(0);
             post1.setAddressee(user1.getFriends());
             post1.setSendDate(date);
             postService.save(post1);
 
 
-            user2.setEmail("admin6@admin.com");
-            user2.setFirstName("admin6");
-            user2.setLastName("admin6");
+            user2.setEmail("admin5@admin.com");
+            user2.setFirstName("admin5");
+            user2.setLastName("admin5");
             userService.save(user2);
 
             post2.setReactions(0);
@@ -114,6 +118,7 @@ public class FriendsInitializer {
             post2.setSender(user2);
             post2.setReactions(0);
             post2.setSendDate(date);
+            post2.setComCount(0);
             post2.setAddressee(user2.getFriends());
             postService.save(post2);
 
@@ -129,6 +134,7 @@ public class FriendsInitializer {
             post3.setTitle("Title of first post from admin3");
             post3.setSender(user3);
             post3.setReactions(0);
+            post3.setComCount(0);
             post3.setAddressee(user3.getFriends());
             postService.save(post3);
 
@@ -139,43 +145,6 @@ public class FriendsInitializer {
             user.setFriends(newFriends);
             user.setFriendsCount(3);
             userService.save(user);
-//            newFriends.clear();
-//            newFriends.add(userService.findByEmail("admin@admin.com").get(0));
-//            newFriends.add(userService.findByEmail("admin2@admin.com").get(0));
-//            newFriends.add(userService.findByEmail("admin3@admin.com").get(0));
-//
-//            List<Post> allPosts = postService.findAll();
-//            //tu pokombinowac zeby jak ktos usunie posty od adminow to byly generowane od poczatku
-//            post1.setReactions(0);
-//            post1.setText("This is first post from admin1, welcome to Meetex");
-//            post1.setTitle("Title of first post from admin1");
-//            post1.setSender(userService.findByEmail("admin@admin.com").get(0));
-//            post1.setReactions(0);
-//            post1.setAddressee(user1.getFriends());
-//            post1.setSendDate(date);
-//            postService.save(post1);
-//
-//            post2.setReactions(0);
-//            post2.setText("This is first post from admin2, welcome to Meetex");
-//            post2.setTitle("Title of first post from admin2");
-//            post2.setSender(userService.findByEmail("admin2@admin.com").get(0));
-//            post2.setReactions(0);
-//            post2.setSendDate(date);
-//            post2.setAddressee(user2.getFriends());
-//            postService.save(post2);
-//
-//            post3.setSendDate(date);
-//            post3.setReactions(0);
-//            post3.setText("This is first post from admin3, welcome to Meetex");
-//            post3.setTitle("Title of first post from admin3");
-//            post3.setSender(userService.findByEmail("admin3@admin.com").get(0));
-//            post3.setReactions(0);
-//            post3.setAddressee(user3.getFriends());
-//            postService.save(post3);
-//
-//            user.setFriends(newFriends);
-//            user.setFriendsCount(3);
-//            userService.save(user);
         }
 
 
