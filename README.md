@@ -16,7 +16,7 @@ Social media app (inspired by Facebook). Made in combination -> Java Fx &amp; Sp
        <summary>Register</summary>
  You can register yourself:
  
- ![view App](/src/images/register.png)
+ ![view App](/src/images/registration.png)
  </details>
  
  <details>
@@ -33,7 +33,7 @@ Social media app (inspired by Facebook). Made in combination -> Java Fx &amp; Sp
  You can see yours and your friends posts
  You can like them, comment them and delete or edit if it is your.
  
- ![view App](/src/images/mainpage.png)
+ ![view App](/src/images/dashboard.png)
  </details>
  
   From main page you can switch window to see your profil details
