@@ -35,4 +35,7 @@ public class Post {
     @Column
     private int reactions;
 
+    @Column
+    private int comCount;
+
 }
