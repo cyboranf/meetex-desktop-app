@@ -33,7 +33,7 @@ public class CommentController implements Initializable {
     @FXML
     public void addComment() {
         Post post = postToView.get(DashboardController.comIndex);
-        User sender = userService.findByLogged();
+        User sender = userService.findByLogged2();
         LocalDate date = LocalDate.now();
 
         Comments comments = new Comments();
@@ -49,7 +49,7 @@ public class CommentController implements Initializable {
     @FXML
     public void refresh(){
         postToView.clear();
-        User user = userService.findByLogged();
+        User user = userService.findByLogged2();
         List<Post> posts = postService.findAll();
         for (int i = posts.size() - 1; i >= 0; i--) {
             if (posts.get(i).getSender().getId().equals(user.getId())) {
