@@ -53,6 +53,7 @@ public class CommentController implements Initializable {
         post.setComCount(post.getComCount() + 1);
         postService.save(post);
         sender.setNotCount(sender.getNotCount() + 1);
+        success.setText("Comment added");
     }
 
     public List<Post> postToView = new ArrayList<>();
@@ -278,6 +279,8 @@ public class CommentController implements Initializable {
     private Label dateCom2;
     @FXML
     private Label dateCom3;
+    @FXML
+    private Label success;
 
     //add com
     @FXML
