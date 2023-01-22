@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 
 import java.awt.*;
@@ -88,7 +89,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void deletePost0(ActionEvent event) throws IOException {
-        if (toOperations > 0) {
+        User loggedUser = userService.findByLogged2();
+        if (toOperations > 0 && postToView.get(0).getSender().equals(loggedUser)) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -105,7 +107,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void deletePost1(ActionEvent event) throws IOException {
-        if (toOperations > 1) {
+        User loggedUser = userService.findByLogged2();
+        if (toOperations > 1 && postToView.get(0).getSender().equals(loggedUser)) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -121,7 +124,8 @@ public class DashboardController implements Initializable {
 
     @FXML
     public void deletePost2(ActionEvent event) throws IOException {
-        if (toOperations > 2) {
+        User loggedUser = userService.findByLogged2();
+        if (toOperations > 2 && postToView.get(0).getSender().equals(loggedUser)) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -358,6 +362,71 @@ public class DashboardController implements Initializable {
         }
     }
 
+    @FXML
+    public void showCom0() throws IOException {
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            if (postToView.size() > 0) {
+                errorOperation.setText("");
+                comIndex = 0;
+                logoutLabel.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/comments.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            } else {
+                errorOperation.setText("Can not show comments");
+            }
+
+        }
+    }
+
+    @FXML
+    public void showCom1() throws IOException {
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            if (postToView.size() > 1) {
+                errorOperation.setText("");
+                comIndex = 1;
+                logoutLabel.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/comments.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            } else {
+                errorOperation.setText("Can not show comments");
+            }
+        }
+    }
+
+    @FXML
+    public void showCom2() throws IOException {
+        if (logUser.size() == 0) {
+            logoutLabel.setText("Sign in to use app");
+        } else {
+            if (postToView.size() > 2) {
+                errorOperation.setText("");
+                comIndex = 2;
+                logoutLabel.setText("");
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(applicationContext::getBean);
+                fxmlLoader.setLocation(getClass().getResource("/comments.fxml"));
+                stage.setScene(new Scene(fxmlLoader.load()));
+                stage.show();
+            } else {
+                errorOperation.setText("Can not show comments");
+            }
+
+        }
+    }
+
     public List<Post> postToView = new ArrayList<>();
     public List<User> logUser = new ArrayList<>();
 
@@ -377,6 +446,7 @@ public class DashboardController implements Initializable {
 
             postToView = postService.findPostToShow(user);
 
+
             if (postToView.size() >= 3) {
                 //newest post
                 title.setText("Title: " + postToView.get(0).getTitle());
@@ -385,6 +455,7 @@ public class DashboardController implements Initializable {
                 postText.setText(postToView.get(0).getText().toString());
                 int reactions = postToView.get(0).getReactions();
                 likeCount.setText(String.valueOf(reactions));
+                comCount0.setText(String.valueOf(postToView.get(0).getComCount()));
 
                 title1.setText("Title: " + postToView.get(1).getTitle());
                 author1.setText(postToView.get(1).getSender().getFirstName());
@@ -392,6 +463,7 @@ public class DashboardController implements Initializable {
                 postText1.setText(postToView.get(1).getText().toString());
                 int reactions1 = postToView.get(1).getReactions();
                 likeCount1.setText(String.valueOf(reactions1));
+                comCount1.setText(String.valueOf(postToView.get(1).getComCount()));
 
                 title2.setText("Title: " + postToView.get(2).getTitle());
                 author2.setText(postToView.get(2).getSender().getFirstName());
@@ -399,6 +471,7 @@ public class DashboardController implements Initializable {
                 postText2.setText(postToView.get(2).getText().toString());
                 int reactions2 = postToView.get(2).getReactions();
                 likeCount2.setText(String.valueOf(reactions2));
+                comCount2.setText(String.valueOf(postToView.get(2).getComCount()));
                 toOperations = 3;
             }
             if (postToView.size() == 2) {
@@ -408,6 +481,7 @@ public class DashboardController implements Initializable {
                 postText.setText(postToView.get(0).getText().toString());
                 int reactions = postToView.get(0).getReactions();
                 likeCount.setText(String.valueOf(reactions));
+                comCount0.setText(String.valueOf(postToView.get(0).getComCount()));
 
                 title1.setText("Title: " + postToView.get(1).getTitle());
                 author1.setText(postToView.get(1).getSender().getFirstName());
@@ -415,6 +489,7 @@ public class DashboardController implements Initializable {
                 postText1.setText(postToView.get(1).getText().toString());
                 int reactions1 = postToView.get(1).getReactions();
                 likeCount1.setText(String.valueOf(reactions1));
+                comCount1.setText(String.valueOf(postToView.get(1).getComCount()));
 
                 title2.setText("");
                 author2.setText("");
@@ -422,6 +497,7 @@ public class DashboardController implements Initializable {
                 postText2.setText("");
                 int reactions2 = 0;
                 likeCount2.setText("");
+                comCount2.setText("");
                 toOperations = 2;
             }
             if (postToView.size() == 1) {
@@ -431,6 +507,7 @@ public class DashboardController implements Initializable {
                 postText.setText(postToView.get(0).getText().toString());
                 int reactions = postToView.get(0).getReactions();
                 likeCount.setText(String.valueOf(reactions));
+                comCount0.setText(String.valueOf(postToView.get(0).getComCount()));
 
                 title2.setText("");
                 author2.setText("");
@@ -438,6 +515,7 @@ public class DashboardController implements Initializable {
                 postText2.setText("");
                 int reactions2 = 0;
                 likeCount2.setText("");
+                comCount2.setText("");
 
                 title1.setText("");
                 author1.setText("");
@@ -446,6 +524,7 @@ public class DashboardController implements Initializable {
                 int reactions1 = 0;
                 likeCount1.setText("");
                 toOperations = 1;
+                comCount1.setText("");
             }
             if (postToView.size() == 0) {
                 title.setText("");
@@ -454,6 +533,7 @@ public class DashboardController implements Initializable {
                 postText.setText("");
                 int reactions = 0;
                 likeCount.setText("");
+                comCount0.setText("");
 
                 title2.setText("");
                 author2.setText("");
@@ -461,6 +541,7 @@ public class DashboardController implements Initializable {
                 postText2.setText("");
                 int reactions2 = 0;
                 likeCount2.setText("");
+                comCount2.setText("");
 
                 title1.setText("");
                 author1.setText("");
@@ -469,6 +550,7 @@ public class DashboardController implements Initializable {
                 int reactions1 = 0;
                 likeCount1.setText("");
                 toOperations = 0;
+                comCount1.setText("");
             }
             friendsCount.setText(user.getFriendsCount() + "");
             messagesCount.setText(user.getMsgCount() + "");
@@ -477,6 +559,13 @@ public class DashboardController implements Initializable {
 
 
     }
+
+    @FXML
+    private Label comCount0;
+    @FXML
+    private Label comCount1;
+    @FXML
+    private Label comCount2;
 
     @FXML
     private Label errorOperation;

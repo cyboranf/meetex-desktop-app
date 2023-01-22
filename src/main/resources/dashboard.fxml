@@ -93,9 +93,9 @@
                                 <Font size="23.0" />
                             </font>
                         </Text>
-                  <Label fx:id="friendsCount" alignment="CENTER" layoutX="417.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="3" />
-                  <Label fx:id="messagesCount" alignment="CENTER" layoutX="465.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="2" />
-                  <Label fx:id="notCount" alignment="CENTER" layoutX="517.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" text="0" />
+                  <Label fx:id="friendsCount" alignment="CENTER" layoutX="417.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" />
+                  <Label fx:id="messagesCount" alignment="CENTER" layoutX="465.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" />
+                  <Label fx:id="notCount" alignment="CENTER" layoutX="517.0" layoutY="47.0" prefHeight="24.0" prefWidth="36.0" styleClass="loginBChild" />
                     </children>
                 </AnchorPane>
                 <Line endX="443.0" layoutX="115.0" layoutY="79.0" startX="-114.0" />
@@ -119,13 +119,20 @@
                                 <Image url="@views/images/like.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="likeCount" layoutX="368.0" layoutY="17.0" prefHeight="24.0" prefWidth="36.0" />
-                        <Label fx:id="title" alignment="CENTER" layoutX="22.0" layoutY="12.0" prefHeight="32.0" prefWidth="347.0">
+                        <Label fx:id="likeCount" alignment="CENTER" layoutX="380.0" layoutY="16.0" prefHeight="24.0" prefWidth="36.0" />
+                        <Label fx:id="title" alignment="CENTER" layoutX="22.0" layoutY="4.0" prefHeight="40.0" prefWidth="251.0">
                      <font>
                         <Font size="17.0" />
                      </font></Label>
                   <Line endX="259.0" layoutX="178.0" layoutY="52.0" startX="-178.5" />
                   <Line endX="259.0" layoutX="176.0" layoutY="105.0" startX="-176.5" />
+                  <Button layoutX="190.0" layoutY="107.0" mnemonicParsing="false" onAction="#showCom0" prefHeight="1.0" prefWidth="72.0" text="more" textFill="#2c8d33" />
+                  <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="333.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@views/images/chatIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="comCount0" alignment="CENTER" layoutX="313.0" layoutY="17.0" prefHeight="24.0" prefWidth="36.0" />
                     </children>
                 </AnchorPane>
                 <Line endX="236.0" layoutX="324.0" layoutY="215.0" startX="-324.5" />
@@ -150,19 +157,19 @@
                         <Image url="@views/images/like.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="likeCount1" layoutX="369.0" layoutY="232.0" prefHeight="24.0" prefWidth="36.0" />
-                <Label fx:id="likeCount2" layoutX="369.0" layoutY="395.0" prefHeight="24.0" prefWidth="36.0" />
+                <Label fx:id="likeCount1" alignment="CENTER" layoutX="380.0" layoutY="232.0" prefHeight="24.0" prefWidth="36.0" />
+                <Label fx:id="likeCount2" alignment="CENTER" layoutX="380.0" layoutY="394.0" prefHeight="24.0" prefWidth="36.0" />
                 <Label fx:id="date1" layoutX="330.0" layoutY="335.0" prefHeight="16.0" prefWidth="106.0" />
                 <Label fx:id="date2" layoutX="330.0" layoutY="485.0" prefHeight="16.0" prefWidth="106.0" />
                 <Label fx:id="author1" layoutX="14.0" layoutY="335.0" prefHeight="16.0" prefWidth="106.0" textFill="#bc1818" />
                 <Label fx:id="author2" layoutX="14.0" layoutY="485.0" prefHeight="16.0" prefWidth="106.0" textFill="#c91515" />
                 <Label fx:id="postText1" alignment="TOP_LEFT" layoutX="20.0" layoutY="273.0" prefHeight="53.0" prefWidth="407.0" />
                 <Label fx:id="postText2" alignment="TOP_LEFT" layoutX="20.0" layoutY="431.0" prefHeight="46.0" prefWidth="407.0" />
-                <Label fx:id="title1" alignment="CENTER" layoutX="15.0" layoutY="224.0" prefHeight="40.0" prefWidth="354.0">
+                <Label fx:id="title1" alignment="CENTER" layoutX="15.0" layoutY="224.0" prefHeight="40.0" prefWidth="272.0">
                <font>
                   <Font size="17.0" />
                </font></Label>
-                <Label fx:id="title2" alignment="CENTER" layoutX="25.0" layoutY="370.0" prefHeight="53.0" prefWidth="333.0">
+                <Label fx:id="title2" alignment="CENTER" layoutX="25.0" layoutY="370.0" prefHeight="53.0" prefWidth="272.0">
                <font>
                   <Font size="17.0" />
                </font></Label>
@@ -170,6 +177,20 @@
             <Line endX="259.0" layoutX="178.0" layoutY="481.0" startX="-177.5" />
             <Line endX="259.0" layoutX="180.0" layoutY="267.0" startX="-179.5" />
             <Line endX="266.0" layoutX="167.0" layoutY="335.0" startX="-166.5" />
+            <Button layoutX="188.0" layoutY="339.0" mnemonicParsing="false" onAction="#showCom1" prefHeight="10.0" prefWidth="72.0" text="more" textFill="#2c8d33" />
+            <Button layoutX="188.0" layoutY="481.0" mnemonicParsing="false" onAction="#showCom2" prefHeight="10.0" prefWidth="72.0" text="more" textFill="#2c8d33" />
+            <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="333.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@views/images/chatIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="32.0" layoutX="337.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@views/images/chatIcon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="comCount1" alignment="CENTER" layoutX="312.0" layoutY="232.0" prefHeight="24.0" prefWidth="36.0" />
+            <Label fx:id="comCount2" alignment="CENTER" layoutX="315.0" layoutY="394.0" prefHeight="24.0" prefWidth="36.0" />
             </children>
         </AnchorPane>
     </children>
