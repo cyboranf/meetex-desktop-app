@@ -91,60 +91,14 @@ public class FriendsInitializer {
             userService.save(user);
         } else {
             newFriends.clear();
-            user1.setEmail("admin4@admin.com");
-            user1.setFirstName("admin4");
-            user1.setLastName("admin4");
-            userService.save(user1);
+            newFriends.add(userService.findByEmail("admin@admin.com").get(0));
+            newFriends.add(userService.findByEmail("admin2@admin.com").get(0));
+            newFriends.add(userService.findByEmail("admin3@admin.com").get(0));
 
-            post1.setReactions(0);
-            post1.setText("This is first post from admin4, welcome to Meetex");
-            post1.setTitle("Title of first post from admin4");
-            post1.setSender(user1);
-            post1.setReactions(0);
-            post1.setComCount(0);
-            post1.setAddressee(user1.getFriends());
-            post1.setSendDate(date);
-            postService.save(post1);
-
-
-            user2.setEmail("admin5@admin.com");
-            user2.setFirstName("admin5");
-            user2.setLastName("admin5");
-            userService.save(user2);
-
-            post2.setReactions(0);
-            post2.setText("This is first post from admin6, welcome to Meetex");
-            post2.setTitle("Title of first post from admin6");
-            post2.setSender(user2);
-            post2.setReactions(0);
-            post2.setSendDate(date);
-            post2.setComCount(0);
-            post2.setAddressee(user2.getFriends());
-            postService.save(post2);
-
-
-            user3.setEmail("admin6@admin.com");
-            user3.setFirstName("admin6");
-            user3.setLastName("admin6");
-            userService.save(user3);
-
-            post3.setSendDate(date);
-            post3.setReactions(0);
-            post3.setText("This is first post from admin3, welcome to Meetex");
-            post3.setTitle("Title of first post from admin3");
-            post3.setSender(user3);
-            post3.setReactions(0);
-            post3.setComCount(0);
-            post3.setAddressee(user3.getFriends());
-            postService.save(post3);
-
-            newFriends.add(user1);
-            newFriends.add(user2);
-            newFriends.add(user3);
-
-            user.setFriends(newFriends);
             user.setFriendsCount(3);
+            user.setFriends(newFriends);
             userService.save(user);
+
         }
 
 
