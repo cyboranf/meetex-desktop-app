@@ -30,7 +30,7 @@ public class User {
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,100}$")
     private String password;
 
-    @OneToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @Nullable
     private List<User> friends;
 
