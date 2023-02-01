@@ -29,9 +29,6 @@ public class CommentsService {
     public List<Comments> findComments(Post post) {
         List<Comments> comments = commentsRepository.findAll();
 
-//        List<Comments> returnedList = comments.stream()
-//                .filter(c -> c.getPost().equals(post))
-//                .toList();
         List<Comments> returnedList = new ArrayList<>();
         comments.forEach(c -> {
             if (c.getPost().getId() == post.getId()) {

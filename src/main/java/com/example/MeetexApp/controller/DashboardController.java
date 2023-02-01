@@ -90,7 +90,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void deletePost0(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 0 && postToView.get(0).getSender().equals(loggedUser)) {
+        if (toOperations > 0 && postToView.get(0).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -108,7 +108,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void deletePost1(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 1 && postToView.get(0).getSender().equals(loggedUser)) {
+        if (toOperations > 1 && postToView.get(0).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -125,7 +125,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void deletePost2(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 2 && postToView.get(0).getSender().equals(loggedUser)) {
+        if (toOperations > 2 && postToView.get(0).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -144,7 +144,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void editPost0(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 0 && postToView.get(0).getSender().equals(loggedUser)) {
+        if (toOperations > 0 && postToView.get(0).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -166,7 +166,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void editPost1(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 1 && postToView.get(1).getSender().equals(loggedUser)) {
+        if (toOperations > 1 && postToView.get(1).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {
@@ -189,7 +189,7 @@ public class DashboardController implements Initializable {
     @FXML
     public void editPost2(ActionEvent event) throws IOException {
         User loggedUser = userService.findByLogged2();
-        if (toOperations > 2 && postToView.get(0).getSender().equals(loggedUser)) {
+        if (toOperations > 2 && postToView.get(0).getSender().getId().equals(loggedUser.getId())) {
             if (logUser.size() == 0) {
                 logoutLabel.setText("Sign in to use app");
             } else {

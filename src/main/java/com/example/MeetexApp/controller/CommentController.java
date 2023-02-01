@@ -73,7 +73,7 @@ public class CommentController implements Initializable {
     @FXML
     public void delete0() {
         User loggedUser = userService.findByLogged2();
-        if (comments.size() > 0 && comments.get(0).getSender().equals(loggedUser)) {
+        if (comments.size() > 0 && comments.get(0).getSender().getId().equals(loggedUser.getId())) {
             cantDelete.setText("");
             postToView.get(0).setComCount(postToView.get(0).getComCount() - 1);
             postService.save(postToView.get(0));
@@ -87,7 +87,7 @@ public class CommentController implements Initializable {
     @FXML
     public void delete1() {
         User loggedUser = userService.findByLogged2();
-        if (comments.size() >= 1 && comments.get(1).getSender().equals(loggedUser)) {
+        if (comments.size() >= 1 && comments.get(1).getSender().getId().equals(loggedUser.getId())) {
             cantDelete.setText("");
             postToView.get(1).setComCount(postToView.get(1).getComCount() - 1);
             postService.save(postToView.get(1));
@@ -101,7 +101,7 @@ public class CommentController implements Initializable {
     @FXML
     public void delete2() {
         User loggedUser = userService.findByLogged2();
-        if (comments.size() >= 2 && comments.get(2).getSender().equals(loggedUser)) {
+        if (comments.size() >= 2 && comments.get(2).getSender().getId().equals(loggedUser.getId())) {
             cantDelete.setText("");
             postToView.get(2).setComCount(postToView.get(2).getComCount() - 1);
             postService.save(postToView.get(2));
@@ -115,7 +115,7 @@ public class CommentController implements Initializable {
     @FXML
     public void delete3() {
         User loggedUser = userService.findByLogged2();
-        if (comments.size() >= 3 && comments.get(3).getSender().equals(loggedUser)) {
+        if (comments.size() >= 3 && comments.get(3).getSender().getId().equals(loggedUser.getId())) {
             cantDelete.setText("");
             postToView.get(3).setComCount(postToView.get(3).getComCount() - 1);
             postService.save(postToView.get(3));

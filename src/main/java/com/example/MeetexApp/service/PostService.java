@@ -57,12 +57,12 @@ public class PostService {
             }
         }
 
-        Collections.sort(returnedList, new Comparator<Post>() {
-            @Override
-            public int compare(Post post, Post post2) {
-                return post.getSendDate().compareTo(post2.getSendDate());
-            }
-        });
+//        Collections.sort(returnedList, new Comparator<Post>() {
+//            @Override
+//            public int compare(Post post, Post post2) {
+//                return post.getSendDate().compareTo(post2.getSendDate());
+//            }
+//        });
         return returnedList;
     }
 }
