@@ -30,7 +30,12 @@ public class User {
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,100}$")
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_friends",
+            joinColumns = {@JoinColumn(name = "user_id", unique = false)},
+            inverseJoinColumns = {@JoinColumn(name = "friend_id", unique = false)}
+    )
     @Nullable
     private List<User> friends;
 
